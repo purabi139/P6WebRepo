@@ -1,0 +1,18 @@
+Column: Parts_Item_name,,
+Note: Parts_Item_name. Make sure all values are entered correctly.,,
+"Do not enter symbols, such as currency or digit grouping, in the numeric fields.",,
+"Enter a negative numberic value using these formats only:-123456.99 or -123456,99.",,
+,,
+PartsManager_CodeRecord_Company Code,PartsManager_CodeRecord_Company Name,Parts_Item_name
+uuu_cm4_code,uuu_cm4_name,Parts_Item_name
+Test-switch boards-Engg,Test,switch boards_import
+Circuit Board-Circuit Board-Engg,Circuit Board,Circuit Board
+partsmgr58578037-partsitem61626275-Engg,partsmgr58578037,partsitem61626275
+partsmgr61633425-partsitem64891530-Engg,partsmgr61633425,partsitem64891530
+partsmgr50847052-partsitem55664244-Engg,partsmgr50847052,partsitem55664244
+partsmgr76972746-partsitem95575669-Engg,partsmgr76972746,partsitem95575669
+partsmgr72141711-partsitem85513837-Engg,partsmgr72141711,partsitem85513837
+partsmgr12681164-partsitem40733923-Engg,partsmgr12681164,partsitem40733923
+partsmgr1155973-partsitem72287395-Engg,partsmgr1155973,partsitem72287395
+partsmgr53203060-partsitem1822192-Engg,partsmgr53203060,partsitem1822192
+partsmgr94413375-partsitem18826217-Engg,partsmgr94413375,partsitem18826217

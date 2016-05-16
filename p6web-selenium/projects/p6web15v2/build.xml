@@ -1,0 +1,280 @@
+<?xml version="1.0"?>
+<project name="ui-test" default="test" basedir=".">
+
+	<property file="${basedir}/user.properties" />
+	<property file="${basedir}/build.properties" />
+	<property file="${basedir}/../../user.properties" />
+	<property file="${basedir}/../../build.properties" />
+
+	<property name="src.dir" value="${basedir}/src" />
+	<property name="classes.dir" value="${basedir}/classes" />
+	<property name="common.dir" value="${basedir}/../common" />
+	<property name="common.classes.dir" value="${common.dir}/classes" />
+	<property name="pageobjects.dir" value="${basedir}/../pageobjects" />
+	<property name="pageobjects.classes.dir" value="${pageobjects.dir}/classes" />
+	<property name="3rdparty.dir" value="${basedir}/../../3rdparty" />
+	<property name="reports.dir" value="${basedir}/../../reports/P610.1" />
+	<property name="reports-grid.dir" value="${basedir}/../../reports/up/reports-grid" />
+	<property name="log4j" value="file:///${basedir}/log4j.properties"/>
+	
+	<path id="classes.classpath">
+		<pathelement path="${common.dir}/src" />
+		<pathelement location="${classes.dir}" />
+		<pathelement location="${common.classes.dir}" />
+		<pathelement location="${pageobjects.classes.dir}" />
+
+		<pathelement location="${3rdparty.dir}/selenium/selenium-server-standalone.jar" />
+		<pathelement location="${3rdparty.dir}/oracle/ojdbc6.jar" />
+		<pathelement location="${3rdparty.dir}/log4j/log4j.jar" />
+		<pathelement location="${3rdparty.dir}/slf4j/slf4j-api.jar" />
+		<pathelement location="${3rdparty.dir}/slf4j/slf4j-log4j12.jar" />
+		<pathelement location="${3rdparty.dir}/slf4j/jcl-over-slf4j.jar" />
+		<pathelement location="${3rdparty.dir}/unifiedPlatform/common.jar" />
+		<pathelement location="${3rdparty.dir}/unifiedPlatform/i18n.jar" />
+		<pathelement location="${3rdparty.dir}/unifiedPlatform/model.jar" />
+		<pathelement location="${3rdparty.dir}/unifiedPlatform/rest.jar" />
+		<pathelement location="${3rdparty.dir}/unifiedPlatform/rules.jar" />
+		<pathelement location="${3rdparty.dir}/unifiedPlatform/scheduling.jar" />
+		<pathelement location="${3rdparty.dir}/unifiedPlatform/meta.jar" />
+		<pathelement location="${3rdparty.dir}/unifiedPlatform/persist.jar" />
+		<pathelement location="${3rdparty.dir}/unifiedPlatform/utilities.jar" />
+		<pathelement location="${3rdparty.dir}/commons/commons-beanutils.jar" />
+		<pathelement location="${3rdparty.dir}/commons/commons-codec.jar" />
+		<pathelement location="${3rdparty.dir}/commons/commons-collections.jar" />
+		<pathelement location="${3rdparty.dir}/commons/commons-httpclient.jar" />
+		<pathelement location="${3rdparty.dir}/commons/commons-io.jar" />
+		<pathelement location="${3rdparty.dir}/commons/commons-lang.jar" />
+		<pathelement location="${3rdparty.dir}/eclipselink/eclipselink.jar" />
+		<pathelement location="${3rdparty.dir}/eclipselink/javax.persistence.jar" />
+		<pathelement location="${3rdparty.dir}/j2ee/javaee.jar" />
+		<pathelement location="${3rdparty.dir}/spring/spring-core.jar" />
+		<pathelement location="${3rdparty.dir}/spring/spring-web.jar" />
+		<pathelement location="${3rdparty.dir}/jersey/jackson-core-asl.jar" />
+		<pathelement location="${3rdparty.dir}/jersey/jackson-mapper-asl.jar" />
+		<pathelement location="${3rdparty.dir}/jersey/jackson-xc.jar" />
+		<pathelement location="${3rdparty.dir}/jersey/jersey-core.jar" />
+		<pathelement location="${3rdparty.dir}/jodatime/joda-time.jar" />
+		<pathelement location="${3rdparty.dir}/spring/spring-web.jar" />
+		<pathelement location="${3rdparty.dir}/spring/spring-core.jar" />
+		<pathelement location="${3rdparty.dir}/unifiedPlatform/intgtest.jar" />
+		<pathelement location="${3rdparty.dir}/unifiedPlatform/intgservices.jar" />
+		<pathelement location="${3rdparty.dir}/junit/junit.jar" />
+		<pathelement location="${3rdparty.dir}/junit/ant-junit.jar" />
+		<pathelement location="${3rdparty.dir}/junit/junit4-ant.jar" />
+		<pathelement location="${3rdparty.dir}/databene/contiperf.jar" />
+		<pathelement location="${3rdparty.dir}/cpsuite/cpsuite.jar" />
+		<pathelement location="${3rdparty.dir}/sikuli/sikuli-ide.jar" />
+		<pathelement location="${3rdparty.dir}/jenkins/testInProgress-client-1.1.jar" />
+	</path>
+
+	<taskdef resource="com/carrotsearch/junit4/antlib.xml" classpathref="classes.classpath" />
+
+	<target name="init">
+		<mkdir dir="${classes.dir}" />
+	</target>
+
+	<target name="clean">
+		<delete dir="${classes.dir}" />
+	</target>
+
+	<target name="compile" depends="init" description="compiles current project">
+		<javac destdir="${classes.dir}" includeantruntime="${compile.antruntime}" failonerror="${compile.failonerror}" deprecation="${compile.deprecation}" debug="${compile.debug.flag}" verbose="${compile.verbose}" source="${compile.source}" target="${compile.target}" depend="${compile.depend}" fork="${compile.fork}" executable="${compile.executable}" encoding="${compile.encoding}">
+			<src path="${src.dir}" />
+			<classpath>
+				<path refid="classes.classpath" />
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="build" description="compiles dependent projects">
+		<ant antfile="${common.dir}/build.xml" target="compile" inheritall="false">
+			<reference refid="classes.classpath" />
+		</ant>
+		<ant antfile="${pageobjects.dir}/build.xml" target="compile" inheritall="false" />
+		<antcall target="compile" />
+	</target>
+
+	<target name="runsuite" if="suite.prefix" depends="build,compile">
+		<mkdir dir="${reports.dir}" />
+		<junit4 printsummary="${junit.printsummary}" haltonfailure="${junit.haltonfailure}" failureProperty="failed">
+			<classpath>
+				<path refid="classes.classpath" />
+				<pathelement path="${basedir}" />
+			</classpath>
+			<listeners>
+				<report-text showThrowable="${junit4.showThrowable}" showStackTraces="${junit4.showStackTraces}" showOutput="${junit4.showOutputStream}" showStatusOk="${junit4.showStatusOk}" showStatusError="${junit4.showStatusError}" showStatusFailure="${junit4.showStatusFailure}" showStatusIgnored="${junit4.showStatusIgnored}" showSuiteSummary="${junit4.showSuiteSummary}" />
+				<report-ant-xml dir="${reports.dir}" mavenExtensions="true" />
+			</listeners>
+
+			<fileset dir="${classes.dir}" includes="**/${suite.prefix}Suite.java,**/${suite.prefix}Suite.class" />
+		</junit4>
+	</target>
+
+	<target name="test" depends="build">
+		<mkdir dir="${reports.dir}" />
+		<junit4 printsummary="${junit.printsummary}" haltonfailure="${junit.haltonfailure}" failureProperty="failed">
+			<classpath>
+				<path refid="classes.classpath" />
+				<pathelement path="${basedir}" />
+			</classpath>
+			<listeners>
+				<report-text showThrowable="${junit4.showThrowable}" showStackTraces="${junit4.showStackTraces}" showOutput="${junit4.showOutputStream}" showStatusOk="${junit4.showStatusOk}" showStatusError="${junit4.showStatusError}" showStatusFailure="${junit4.showStatusFailure}" showStatusIgnored="${junit4.showStatusIgnored}" showSuiteSummary="${junit4.showSuiteSummary}" />
+				<report-ant-xml dir="${reports.dir}" mavenExtensions="true" />
+			</listeners>
+
+			<fileset dir="${classes.dir}" includes="${ui.patternset}" excludes="${ui.exclude.patternset}" />
+		</junit4>
+	</target>
+
+	<target name="run_regression" depends="build">
+		<mkdir dir="${reports.dir}" />
+		<junit4 printsummary="${junit.printsummary}" haltonfailure="${junit.haltonfailure}" failureProperty="failed">
+			<classpath>
+				<path refid="classes.classpath" />
+				<pathelement path="${basedir}" />
+			</classpath>
+			<listeners>
+				<report-text showThrowable="${junit4.showThrowable}" showStackTraces="${junit4.showStackTraces}" showOutput="${junit4.showOutputStream}" showStatusOk="${junit4.showStatusOk}" showStatusError="${junit4.showStatusError}" showStatusFailure="${junit4.showStatusFailure}" showStatusIgnored="${junit4.showStatusIgnored}" showSuiteSummary="${junit4.showSuiteSummary}" />
+				<report-ant-xml dir="${reports.dir}" mavenExtensions="true" />
+			</listeners>
+
+			<fileset dir="${common.classes.dir}" includes="**/RegressionSuite.class" />
+		</junit4>
+	</target>
+
+	<target name="run_acceptance" depends="build">
+		<mkdir dir="${reports.dir}" />
+		<junit4 printsummary="${junit.printsummary}" haltonfailure="${junit.haltonfailure}" failureProperty="failed">
+			<classpath>
+				<path refid="classes.classpath" />
+				<pathelement path="${basedir}" />
+			</classpath>
+			<listeners>
+				<report-text showThrowable="${junit4.showThrowable}" showStackTraces="${junit4.showStackTraces}" showOutput="${junit4.showOutputStream}" showStatusOk="${junit4.showStatusOk}" showStatusError="${junit4.showStatusError}" showStatusFailure="${junit4.showStatusFailure}" showStatusIgnored="${junit4.showStatusIgnored}" showSuiteSummary="${junit4.showSuiteSummary}" />
+				<report-ant-xml dir="${reports.dir}" mavenExtensions="true" />
+			</listeners>
+
+			<fileset dir="${common.classes.dir}" includes="**/AcceptanceSuite.class" />
+		</junit4>
+	</target>
+
+	<target name="run_srs" depends="build">
+		<mkdir dir="${reports.dir}" />
+		<junit4 printsummary="${junit.printsummary}" haltonfailure="${junit.haltonfailure}" failureProperty="failed">
+			<classpath>
+				<path refid="classes.classpath" />
+				<pathelement path="${basedir}" />
+			</classpath>
+			<listeners>
+				<report-text showThrowable="${junit4.showThrowable}" showStackTraces="${junit4.showStackTraces}" showOutput="${junit4.showOutputStream}" showStatusOk="${junit4.showStatusOk}" showStatusError="${junit4.showStatusError}" showStatusFailure="${junit4.showStatusFailure}" showStatusIgnored="${junit4.showStatusIgnored}" showSuiteSummary="${junit4.showSuiteSummary}" />
+				<report-ant-xml dir="${reports.dir}" mavenExtensions="true" />
+			</listeners>
+
+			<fileset dir="${common.classes.dir}" includes="**/SRSSuite.class" />
+		</junit4>
+	</target>
+
+	<target name="create_grid_suites" depends="build,compile">
+		<java classname="com.oracle.pgbu.common.helpers.CreateGridSuites">
+			<classpath>
+				<path refid="classes.classpath" />
+				<pathelement path="${basedir}" />
+			</classpath>
+		</java>
+
+		<javac destdir="${classes.dir}" includeantruntime="${compile.antruntime}" failonerror="${compile.failonerror}" deprecation="${compile.deprecation}" debug="${compile.debug.flag}" verbose="${compile.verbose}" source="${compile.source}" target="${compile.target}" depend="${compile.depend}" fork="${compile.fork}" executable="${compile.executable}" encoding="${compile.encoding}">
+			<src path="${common.dir}/src/com/oracle/pgbu/common/helpers" />
+			<classpath>
+				<path refid="classes.classpath" />
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="run_grid_all" depends="create_grid_suites">
+		<mkdir dir="${reports-grid.dir}" />
+		<junit printsummary="yes" haltonfailure="no" showoutput="yes">
+			<classpath>
+				<path refid="classes.classpath" />
+				<pathelement path="${basedir}" />
+			</classpath>
+
+			<batchtest todir="${reports-grid.dir}" fork="yes">
+				<fileset dir="${classes.dir}" includes="**/GridAllTestsSuite.class" />
+			</batchtest>
+
+			<formatter type="brief" usefile="false" />
+			<formatter type="xml" />
+		</junit>
+	</target>
+
+	<target name="run_grid_srs" depends="create_grid_suites">
+		<mkdir dir="${reports-grid.dir}" />
+		<junit printsummary="yes" haltonfailure="no" showoutput="yes">
+			<classpath>
+				<path refid="classes.classpath" />
+				<pathelement path="${basedir}" />
+			</classpath>
+
+			<batchtest todir="${reports-grid.dir}" fork="yes">
+				<fileset dir="${classes.dir}" includes="**/GridSRSSuite.class" />
+			</batchtest>
+
+			<formatter type="brief" usefile="false" />
+			<formatter type="xml" />
+		</junit>
+	</target>
+
+	<target name="run_grid_acceptance" depends="create_grid_suites">
+		<mkdir dir="${reports-grid.dir}" />
+		<junit printsummary="yes" haltonfailure="no" showoutput="yes">
+			<classpath>
+				<path refid="classes.classpath" />
+				<pathelement path="${basedir}" />
+			</classpath>
+
+			<batchtest todir="${reports-grid.dir}" fork="yes">
+				<fileset dir="${classes.dir}" includes="**/GridAcceptanceSuite.class" />
+			</batchtest>
+
+			<formatter type="brief" usefile="false" />
+			<formatter type="xml" />
+		</junit>
+	</target>
+
+	<target name="run_grid_regression" depends="create_grid_suites">
+		<mkdir dir="${reports-grid.dir}" />
+		<junit printsummary="yes" haltonfailure="no" showoutput="yes">
+			<classpath>
+				<path refid="classes.classpath" />
+				<pathelement path="${basedir}" />
+			</classpath>
+
+			<batchtest todir="${reports-grid.dir}" fork="yes">
+				<fileset dir="${classes.dir}" includes="**/GridRegressionSuite.class" />
+			</batchtest>
+
+			<formatter type="brief" usefile="false" />
+			<formatter type="xml" />
+		</junit>
+	</target>
+	
+	<target name="run_P6_suites" depends="build">
+		<mkdir dir="${reports.dir}" />
+		<junit printsummary="yes" haltonfailure="no" showoutput="yes">
+			<sysproperty key="log4j.configuration" value="${log4j}"/>
+			<classpath>
+				<path refid="classes.classpath" />
+				<pathelement path="${basedir}" />
+			</classpath>
+	
+			<batchtest todir="${reports.dir}" fork="yes">
+				<fileset dir="${classes.dir}" includes="**/JenkinsBatchProgess.class" />
+			</batchtest>
+			<formatter type="brief" usefile="false" />
+			<formatter type="xml" />
+		</junit>
+	</target>
+</project>
+
+
+

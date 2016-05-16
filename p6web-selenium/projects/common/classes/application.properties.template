@@ -1,0 +1,31 @@
+// [P69 Platform Specific]
+p615v2.url=http://blr2262424:8080/bluedoor
+p615v1.url=http://10.176.111.108:7001/bluedoor
+
+// [General]
+login=costuser
+password=123123
+
+#Set this flag if default login with above user is desired
+defaultLoginEnabled=false
+
+// [Udesigner]
+udesignerLogin=Administrator
+udesignerPassword=!nn0v8te
+
+browser=chrome
+closeBrowserOnExit=true
+screenshotPath=C:/seleniumCaptures
+
+//gridEnabled=false
+//gridHub=http://10.140.179.42:4444/wd/hub
+//gridSikuliHostName=blr2222606
+//gridSikuliIPName=10.177.117.244
+
+//ieDriverPath=/path/to/3rdparty/internetexplorer/x32/IEDriverServer.exe
+
+// [Timing]
+waitTime=2
+
+//[No. of times a test is to be executed till it passes]
+retryCount=2

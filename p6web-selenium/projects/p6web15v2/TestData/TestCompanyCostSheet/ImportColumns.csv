@@ -1,0 +1,6 @@
+Column: Accounts Code 1,,
+Note: Make sure all values are entered correctly,,
+,,
+Company Account Code,Company Account Name,Amount
+code,accountname,amount
+bonding1-cgc01-cgcps01-category01-111,test,1000

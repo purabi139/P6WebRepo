@@ -1,0 +1,144 @@
+<div class="form-content tabbable tabbed-div">
+	<ul class="nav nav-tabs with-notch">
+		<li class="active">
+			<a href="javascript:void(0);" data-target=".workflowTab" data-toggle="tab">{{ locale.properties.workflow }}</a>
+		</li>
+		<li>
+			<a href="javascript:void(0);" data-target=".stepTab" data-toggle="tab">{{ locale.properties.step }}</a>
+		</li>
+		<li>
+			<a href="javascript:void(0);" data-target=".taskTab" data-toggle="tab">{{ locale.properties.task }}</a>
+		</li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab-pane active workflowTab">
+			<div class="row-fluid">
+				<div class="span1"></div>
+				<div class="span10">
+
+					<div class="control-group">
+						<label class="control-label" for="wfName">{{ locale.properties.name }}</label>
+						<div class="controls">
+							<input class="main-control" type="text" value="" id="wfName" modelfield="Name" />
+						</div>
+					</div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="wfDescription">{{ locale.properties.description }}</label>
+                        <div class="controls">
+							<textarea class="main-control" rows="6" id="wfDescription" modelfield="Description"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="wfContext">{{ locale.properties.context }}</label>
+                        <div class="controls">
+                            <input class="main-control" type="text" id="wfContext" />
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="wfManager">{{ locale.properties.manager }} </label>
+                        <div class="controls">
+                            <input class="main-control" type="text" id="wfManager"/>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="wfAltManagers">{{locale.properties.alternate_managers }} </label>
+                        <div class="controls">
+                            <select class="main-control" type="text" value="" id="wfAltManagers" >
+                                <option value="">Select a group</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div  id="wfDuration">
+                    </div>
+
+                    <div class="control-group remove-after-css-change">
+                    </div>
+
+                    <label >{{ locale.properties.status }}</label>
+                    <label class="radio">
+                        <input type="radio" class="main-control" name="statusRadios" id="wfEnabled" >
+                        {{locale.properties.enabled }}
+                    </label>
+                    <label class="radio">
+                        <input type="radio" class="main-control" name="statusRadios" id="wfDisabled" checked="true">
+                        {{locale.properties.disabled }}
+                    </label>
+
+                 </div>
+			</div>
+		</div>
+
+		<div class="tab-pane stepTab">
+			<div class="row-fluid">
+				<div class="span1"></div>
+				<div class="span10">
+                    <div class="control-group">
+                        <label class="control-label" for="stepName">{{ locale.properties.name }}</label>
+                        <div class="controls">
+							<input class="main-control" type="text" value="" id="stepName" modelfield="Name" />
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="stepDescription">{{ locale.properties.description }}</label>
+                        <div class="controls">
+							<textarea class="main-control" rows="6" id="stepDescription" modelfield="Description"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="stepContext">{{ locale.properties.context }}</label>
+                        <div class="controls">
+                            <input class="main-control" type="text" id="stepContext" />
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="stepManager">{{ locale.properties.manager }} </label>
+                        <div class="controls">
+                            <input class="main-control" type="text" id="stepManager" />
+                        </div>
+                    </div>
+
+                    <div  id="stepDuration">
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="stepErrorHandling">{{ locale.properties.error_handling }}</label>
+                        <div class="controls">
+							<select class="main-control" type="text" value="" id="stepErrorHandling" modelfield="ErrorHandlingType">
+                                <option value="{{ enums.Workflow.ErrorHandlingType.OVERRIDE}}">{{ locale.properties.error_handling_types.notify }}</option>
+                                <option value="{{ enums.Workflow.ErrorHandlingType.STOP}}">{{ locale.properties.error_handling_types.stop }}</option>
+                                <option value="{{ enums.Workflow.ErrorHandlingType.IGNORE}}">{{ locale.properties.error_handling_types.ignore }}</option>
+                            </select>
+                        </div>
+                    </div>
+				</div>
+			</div>
+		</div>
+		<div class="tab-pane taskTab">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+                    <div id="taskGrid" style="overflow-y: auto; height: 300px"></div>
+
+                    <div class="taskButtons"></div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="taskDetails">{{ locale.properties.details }}</label>
+                        <div class="controls">
+                            <textarea class="main-control" rows="15" id="taskDetails"></textarea>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+	</div>
+</div>

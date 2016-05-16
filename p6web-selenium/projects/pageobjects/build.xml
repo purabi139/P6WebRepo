@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<project name="page-objects" default="compile" basedir=".">
+
+	<property file="${basedir}/user.properties" />
+	<property file="${basedir}/build.properties" />
+	<property file="${basedir}/../../user.properties" />
+	<property file="${basedir}/../../build.properties" />
+
+	<property name="src.dir" value="${basedir}/src" />
+	<property name="classes.dir" value="${basedir}/classes" />
+	<property name="3rdparty.dir" value="${basedir}/../../3rdparty" />
+	<property name="common.dir" value="${basedir}/../common" />
+	<property name="common.classes.dir" value="${common.dir}/classes" />
+
+	<path id="classes.classpath">
+		<pathelement location="${classes.dir}" />
+		<pathelement location="${common.classes.dir}" />
+
+		<pathelement location="${3rdparty.dir}/selenium/selenium-server-standalone.jar" />
+		<pathelement location="${3rdparty.dir}/oracle/ojdbc6.jar" />
+		<pathelement location="${3rdparty.dir}/log4j/log4j.jar" />
+		<pathelement location="${3rdparty.dir}/slf4j/slf4j-api.jar" />
+		<pathelement location="${3rdparty.dir}/slf4j/slf4j-log4j12.jar" />
+		<pathelement location="${3rdparty.dir}/slf4j/jcl-over-slf4j.jar" />
+		<pathelement location="${3rdparty.dir}/commons/commons-beanutils.jar" />
+		<pathelement location="${3rdparty.dir}/commons/commons-codec.jar" />
+		<pathelement location="${3rdparty.dir}/commons/commons-collections.jar" />
+		<pathelement location="${3rdparty.dir}/commons/commons-httpclient.jar" />
+		<pathelement location="${3rdparty.dir}/commons/commons-io.jar" />
+		<pathelement location="${3rdparty.dir}/commons/commons-lang.jar" />
+		<pathelement location="${3rdparty.dir}/commons/commons-logging.jar" />
+		<pathelement location="${3rdparty.dir}/eclipselink/eclipselink.jar" />
+		<pathelement location="${3rdparty.dir}/eclipselink/javax.persistence.jar" />
+		<pathelement location="${3rdparty.dir}/j2ee/javaee.jar" />
+		<pathelement location="${3rdparty.dir}/jersey/jackson-core-asl.jar" />
+		<pathelement location="${3rdparty.dir}/jersey/jackson-mapper-asl.jar" />
+		<pathelement location="${3rdparty.dir}/jersey/jackson-xc.jar" />
+		<pathelement location="${3rdparty.dir}/jersey/jersey-core.jar" />
+		<pathelement location="${3rdparty.dir}/junit/junit.jar" />
+		<pathelement location="${3rdparty.dir}/junit/ant-junit.jar" />
+	</path>
+
+	<target name="init">
+		<mkdir dir="${classes.dir}" />
+	</target>
+
+	<target name="clean">
+		<delete dir="${classes.dir}" />
+	</target>
+
+	<target name="compile" depends="init">
+		<javac destdir="${classes.dir}" includeantruntime="${compile.antruntime}" failonerror="${compile.failonerror}" deprecation="${compile.deprecation}" debug="${compile.debug.flag}" verbose="${compile.verbose}" source="${compile.source}" target="${compile.target}" depend="${compile.depend}" fork="${compile.fork}" executable="${compile.executable}" encoding="${compile.encoding}">
+			<src path="${src.dir}" />
+			<classpath>
+				<path refid="classes.classpath" />
+			</classpath>
+		</javac>
+	</target>
+
+</project>
+
+
+

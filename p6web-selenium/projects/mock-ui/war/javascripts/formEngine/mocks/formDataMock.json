@@ -1,0 +1,25 @@
+{
+    "description": "Use this template for new product introduction projects in R&D.",
+    "projectId": 4467,
+    "projectCategoryValues": {
+        "54": 1059,
+        "84": 246,
+        "167": 802,
+        "201": 895,
+        "224": 1025,
+        "225": 1019,
+        "237": 1095
+    },
+    "projectType": "TEMPLATE",
+    "dataDate": "01-02-2012 00:00:00",
+    "projectName": "Product Development Template",
+    "projectCode": "PRODTEMPLATE",
+    "planStartDate": "01-02-2012 00:00:00",
+    "riskLevel": 3,
+    "priorityNum": 10,
+    "strgyPriorityNum": 500,
+    "actualPercentLink": false,
+    "actualThisPeriod": true,
+    "linkRemainingToPlanned": true,
+    "dataKey_1" : "data key1 value"
+}

@@ -1,0 +1,179 @@
+package com.oracle.pgbu.p616v1.testcases.projects.activities;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+
+import com.oracle.pgbu.common.categories.Acceptance;
+import com.oracle.pgbu.common.pagefactory.CustomPageFactory;
+import com.oracle.pgbu.common.utils.ApplicationProperties;
+import com.oracle.pgbu.p6web.helper.DataHelper;
+import com.oracle.pgbu.p6web.helper.GenericHelper;
+//import com.oracle.pgbu.teammember.helper.TeamMemberHelper;
+import com.oracle.pgbu.p6web.testcases.BaseTestCase;
+import com.oracle.pgbu.pages.p6Web15v2.LoginPage;
+import com.oracle.pgbu.pages.p6Web15v2.ProjectsPage;
+import com.primavera.ws.p6.project.Project;
+
+/**
+ * @Case
+ * @author viksv
+ * @date
+ * @throws Exception
+ */
+@Category(Acceptance.class)
+public class Test1 extends BaseTestCase {
+	private final GenericHelper genHelper = new GenericHelper();
+	ProjectsPage projectsPage;
+	DataHelper dataHelper = new DataHelper();
+	LoginPage m_loginPage = new LoginPage();
+	ApplicationProperties appProperties = new ApplicationProperties();
+
+	@Before
+	public void testSetUp() throws InterruptedException {
+
+		/*
+		 * if (!m_loggedIn) { BaseState.login(); m_loggedIn = true; }
+		 */
+
+	}
+
+	/*
+	 * Login to P6 Navigate to Projects -> EPS. Close all Projects. Create a
+	 * Project and save. Project created successfully Navigate to Activities
+	 * Page . Select the Activity View - ActView1 View is loaded Add a new
+	 * Activity with no grouping to the project and save New Activity saved
+	 * "Now edit the ""Activity Name"" of the Activity that was added in
+	 * previous step. And save " Activity Name is changed and saved successfully
+	 * Edit Remaining duration of the Activity and Save the changes Successfully
+	 * changed and saved the remaining duration Now edit the Planned Start date,
+	 * Activity Type and WBS. Save the changes Successfully changed and saved
+	 * the Planned Start Date, Activity Type and WBS Delete the Activity that
+	 * was added. Warning displays and activity is removed when clicking yes
+	 * Activity is deleted and only one Activity is available in the project
+	 */
+
+	/**
+	 * @case: Create Activities for a Project
+	 * @step1: Login to P6
+	 * @step2: Navigate to Activities Page under Projects Tab
+	 * @step3: Open a Project from Open Projects Dialog option
+	 * @step4: Add Activity
+	 * 
+	 */
+
+	// @SuppressWarnings("static-access")
+
+	@Test
+	public void VerifyAddEditDeleteAndActivityOfSingleProject() throws Exception {
+		
+		genHelper.createDataP6Test1(user);
+		
+		projectsPage = CustomPageFactory.initElements(ProjectsPage.class);
+		m_loginPage = CustomPageFactory.initElements(LoginPage.class);
+
+		// step 1. Login into p6 using admin1/admin credentials
+		logger.info("******** step 1. Login into p6 using admin1/admin credentials **********");
+		m_loginPage.login(appProperties.getLogin(), appProperties.getLoginPassword(), true);
+
+		logger.info("******* step2: Add Activity using Webservice**********");
+		dataHelper.createActivityWithType("Task Dependent");
+		dataHelper.createActivityWithType("Task Dependent");
+
+		logger.info("******* step3: Navigate to Activities Page under Projects Tab **********");
+		projectsPage.navigateToActivitiesPage();
+
+		logger.info("******* step4: Open a Project from Open Projects Dialog option **********");
+		List<String> projectNames = new ArrayList<String>();
+		projectNames.add(dataHelper.project.getName());
+		projectsPage.openAProject(projectNames);
+		logger.info("******* step5: Selecting an Activity Row **********");
+//        projectsPage.selectActivityRow();
+//		logger.info("******* step6: Editing the ActivityID/Code in the Selected Activity Row **********");
+//		String activityId = projectsPage.editActivityId("Activity 01");
+//		Assert.assertEquals("Activity 01", activityId);
+//		
+//		logger.info("******* step6: Editing the ActivityID/Code in the Selected Activity Row **********");
+//		projectsPage.selectActivityName();
+//		String activityName=projectsPage.editActivityName("Develpoment");
+//		Assert.assertEquals("Develpoment", activityName);
+//		
+//		logger.info("******* step7: Selecting Remaining Duration field **********");
+//		projectsPage.selectRemainingDuration();
+//		logger.info("******* step8: Editing the Remaining Duration field **********");
+//		String remaininDura=projectsPage.editRemainingDuration("6.0d");
+//		Assert.assertEquals("6.0d", remaininDura);
+//		
+		logger.info("******* step8: Editing the Planned start date field**********");
+		projectsPage.selectplannedStart();
+		String plannedStart = projectsPage.editPlannedStart();
+//		Assert.assertFalse();
+		
+		logger.info("******* step8: Editing the Activity Type field**********");
+		String ActType=projectsPage.selectAndEditActivityType("Resource Dependent");
+		Assert.assertEquals("Resource Dependent", ActType);
+
+		logger.info("******* step9: Selecting an Activity Row **********");
+		projectsPage.selectActivityRow();
+		logger.info("******* step10: Deleting an Activity Row **********");
+		projectsPage.deleteActivity();
+
+	}
+
+	/*
+	 * Login to P6 4 Navigate to Projects -> EPS. Close all Projects. Create
+	 * Projects and save. 5 Navigate to Activities Page . Select the Activity
+	 * View - ActView1 6 Verify the Activity Gantt is loaded correctly
+	 * Activities are created under respective projects 7 Click on an Activity
+	 * under Project1 and check Copy button is enabled in the toolbar Copy
+	 * button is enable 8 Click on Copy Activity is copied 9 Now paste the
+	 * copied activity under the 2nd Project Paste button is enable and the
+	 * Activity is pasted under 2nd Project 10 Verify Save button is enable
+	 * after Paste. Click save Save button is enable. Saved 11 Verify if Type,
+	 * Resource Assignment and Planned Duration correctly for the pasted
+	 * Activity.
+	 * 
+	 * 
+	 * 
+	 */
+	/**
+	 * P6 Activity Creation test
+	 */
+
+	//@Test
+	public void VerifyCopyPasteActivity() throws Exception {
+		genHelper.createProjectsTest1(user);
+		
+		projectsPage = CustomPageFactory.initElements(ProjectsPage.class);
+		m_loginPage = CustomPageFactory.initElements(LoginPage.class);
+
+		// step 1. Login into p6 using admin1/admin credentials
+		logger.info("******* step 1. Login into p6 using admin1/admin credentials **********");
+		m_loginPage.login(appProperties.getLogin(), appProperties.getLoginPassword(), true);
+
+		logger.info("******* step2: Add Activity using Webservice**********");
+		
+
+		logger.info("******* step3: Navigate to Activities Page under Projects Tab **********");
+		projectsPage.navigateToActivitiesPage();
+
+		logger.info("******* step4: Open a Project from Open Projects Dialog option **********");
+		List<String> projectNames = new ArrayList<String>();
+		for (Project proj : dataHelper.getProjectList()) {
+			projectNames.add(proj.getName());
+		}
+
+		projectsPage.openAProject(projectNames);
+		logger.info("******* step5: Selecting an Activity Row **********");
+		projectsPage.addActivity("Act1");
+		
+		projectsPage.addActivity("Act2");
+		projectsPage.selectActivityRow();
+		projectsPage.copyPasteActivity();
+
+	}
+}

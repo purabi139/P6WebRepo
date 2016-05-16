@@ -1,0 +1,6 @@
+Column: Account Details,,,,,,,,,,,,,,,,,,,
+"Note: Required fields are Contract Change Category, GC Contract Type, Vendor, Bonding Requirements, PS Contract Type; Make sure all values are entered correctly",,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+Company Account Code,Company Account Name,Multi Select Input,Region,Contract Change Category,Radio_Button_1+,GC Contract Type,lz_hyperlin1,CheckBox1++,Vendor,Integer_Amount_1+,State,Office Type,Sam Special Description,Decimal_Amount_1+,Currency_+Amount+_1,Pull Down,Bonding Requirements,Date Created,PS Contract Type
+code,accountname,DE_Multi_Select_Input,VDB_Region,CTC_Category,Radio_Button_01,CGC_GCContractType,lz_hyperlink1,Check_Box_1,Vendor_TextBox,Integer_Amount_1,VDB_State,VDB_OfficeType,SamShort_1,Decimal_Amount_01,Currency_Amount_01,pulldown,CGC_BondingRequirements,Date_Created,CGC_PSContractType
+bonding1-cgc01-cgcps01-category01-temp,,,,CATEGORY01,,CGC01,,0,Test,100,,,,100,100,,Bonding1,,CGCPS01

@@ -1,0 +1,114 @@
+<script type="text/html" class="htm-demoTemplate">
+	<div class="control-group">
+		<button class="btn btn-primary createTestProject">Create Test Project</button>
+		<button class="btn btn-primary createProject">Create Project</button>
+		<button class="btn workflowEditor">Workflow Editor</button>
+		<button class="btn workflowEditorNew">Create a New Workflow</button>
+		<button class="btn showForm2">Form 2</button>
+		<button class="btn showForm3">Form 3</button>
+        <button class="btn logout">Logout</button>
+	</div>
+</script>
+
+<script type="text/html" class="htm-formTemplate">
+	<div class="formWidgets row-fluid"></div>
+</script>
+
+<script type="text/html" class="htm-groupsetTemplate">
+	<div class="children row-fluid anchor" id="{{options.controlId}}"></div>
+</script>
+
+<script type="text/html" class="htm-groupTemplate">
+	<div class="{{ options.borderClass  }} {{ options.sizeClass }}">
+		<fieldset class="anchor">
+			<legend title="{{ options.customLabel }}" class="{{ options.showLabel? '': 'hide'}}">{{
+			options.customLabel
+				}}</legend>
+			<div class="children fieldset-content"></div>
+		</fieldset>
+	</div>
+</script>
+
+<script type="text/html" class="htm-textTemplate">
+	<div class="control-group anchor">
+		<label class="control-label" for="{{ options.controlId }}">{{ options.customLabel }}</label>
+		<input class="input-text main-control" type="text"
+			   value="{{ options.defaultValue }}" id="{{ options.controlId }}" {{ options.readOnly ?
+		"readonly=\"readonly\"" : "" }} />
+	</div>
+</script>
+
+<script type="text/html" class="htm-monetaryTemplate">
+	<div class="control-group anchor">
+		<label class="control-label" for="{{ options.controlId }}">{{ options.customLabel }}</label>
+		<input type="number" id="{{ options.controlId }}" {{ options.readOnly ? "readonly=\"readonly\"" : "" }}>
+	</div>
+</script>
+
+<script type="text/html" class="htm-textAreaTemplate">
+	<div class="control-group anchor">
+		<label for="{{ options.controlId }}">{{ options.customLabel }}</label>
+		<textarea rows="{{ options.controlHeight }}" cols="{{ options.controlWidth }}" class="main-control"
+				  id="{{ options.controlId }}" {{ options.readOnly ? "readonly=\"readonly\"" : "" }}>{{
+		options.defaultValue }}</textarea>
+	</div>
+</script>
+
+<script type="text/html" class="htm-datePickerTemplate">
+	<div class="control-group anchor">
+		<label for="{{ options.controlId }}">{{ options.customLabel }}</label>
+		<input type="date" id="{{ options.controlId }}" class="main-control" {{ options.readOnly ?
+		"readonly=\"readonly\"" : "" }} />
+	</div>
+</script>
+
+<script type="text/html" class="htm-tabsetTemplate">
+	<div class="tabbable anchor">
+		<ul class="nav nav-tabs with-notch" id="tabsetTabs1"></ul>
+		<div class="tab-content">
+		</div>
+	</div>
+</script>
+
+<script type="text/html" class="htm-tabTemplate">
+	<div id="{{options.tabId}}" class="tab-pane {{options.active ?'active':''}}"></div>
+</script>
+
+<script type="text/html" class="htm-tabSetLinkTemplate">
+	<li class=" {{options.active ?'active':''}}">
+		<a href="#{{options.tabId }}" data-toggle="tab">{{ options.tabName}}</a>
+	</li>
+</script>
+
+<script type="text/html" class="htm-dropDownTemplate">
+	<div class="control-group anchor">
+		<label for="{{ options.controlId }}">{{ options.customLabel }}</label>
+		<select class="drop-down main-control" name="{{options.customLabel}}" id="{{ options.controlId }}" {{
+		options.readOnly ? "disabled=\"disabled\"" : "" }}>
+
+		</select>
+	</div>
+</script>
+
+<script type="text/html" class="htm-dropDownOptionTemplate">
+	<option value="{{ optionItem.projectCategoryId }}">{{ optionItem.projectCategoryName }}</option>
+</script>
+
+<script type="text/html" class="htm-enumDropDownOptionTemplate">
+    <option value="{{ optionItem.id }}">{{ optionItem.name }}</option>
+</script>
+
+<script type="text/html" class="htm-promptTemplate">
+	<p><span class="promptWidget">{{options.customLabel}} </span></p>
+</script>
+
+<script type="text/html" class="htm-pickerTemplate">
+	<div class="control-group anchor">
+		<label class="control-label" for="{{ options.controlId }}">{{ options.customLabel }} </label>
+
+		<div class="controls">
+			<input class="main-control" type="text" id="{{ options.controlId }}" {{ options.readOnly ?
+			"readonly=\"readonly\"" : "" }} />
+		</div>
+	</div>
+</script>

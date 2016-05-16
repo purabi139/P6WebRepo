@@ -1,0 +1,84 @@
+<script type="text/html" class="tpl-button">
+	<button class="btn {{ size }} {{ type }} {{ recognizedAs }}">
+		<% if (additionInfo != null && additionInfo.prepend === true) { %>
+		<span class="{{additionInfo.cssClass}}">{{ additionInfo.label }}</span>
+		<% } %>
+		<span>{{ label }}</span>
+		<% if (additionInfo != null && additionInfo.append === true) { %>
+		<span class="{{additionInfo.cssClass}}">{{ additionInfo.label }}</span>
+		<% } %>
+	</button>
+</script>
+
+<script type="text/html" class="tpl-button-data-dismiss">
+	<button class="btn {{ size }} {{ type }} {{ recognizedAs }}" data-dismiss="{{ dataDismissType }}">
+		<span>{{ label }}</span>
+	</button>
+</script>
+
+<script type="text/html" class="tpl-buttonDropdown">
+	<div class="btn-group {{ dropDirection }}">
+		<button class="btn {{ size }} {{ type }} {{ recognizedAs }} dropdown-toggle" data-toggle="dropdown">
+			<span>{{ buttonLabel }}</span>
+			<% if (hasDivider === true) { %>
+			<span class="divider"></span>
+			<% } %>
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+			<% _.each(buttonItems, function (buttonItem) {
+			if (buttonItem.isDivider) { %>
+			<li class="divider"></li>
+			<% }
+			else { %>
+			<li><a class="{{ buttonItem.recognizedAs }}" href="javascript:void(0);">{{ buttonItem.label }}</a></li>
+			<% }
+			}); %>
+		</ul>
+	</div>
+</script>
+
+<script type="text/html" class="tpl-imageButton">
+	<button class="btn {{ size }} {{ type }} {{ recognizedAs }}" title="{{ tooltip }}">
+		<i class="{{ icon }}"></i>
+		<span>{{ label }}</span>
+	</button>
+</script>
+
+<script type="text/html" class="tpl-splitButtonDropdown">
+	<div class="btn-group {{ dropDirection }}">
+		<button class="btn {{ size }} {{ type }} {{ recognizedAs }}">
+			<span>{{ buttonLabel }}</span>
+		</button>
+		<button class="btn {{ size }} {{ type }} dropdown-toggle" data-toggle="dropdown">
+			<span></span>
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+			<% _.each(buttonItems, function (buttonItem) {
+			if (buttonItem.isDivider) { %>
+			<li class="divider"></li>
+			<% }
+			else { %>
+			<li><a class="{{ buttonItem.recognizedAs }}" href="javascript:void(0);">{{ buttonItem.label }}</a></li>
+			<% }
+			}); %>
+		</ul>
+	</div>
+</script>
+
+<script type="text/html" class="tpl-buttonGroup">
+	<div class="btn-group">
+		<% _.each(buttons, function (buttonHtml) {
+		print(buttonHtml);
+		}); %>
+	</div>
+</script>
+
+<script type="text/html" class="tpl-toolbar">
+	<div class="btn-toolbar">
+		<% _.each(toolbarItems, function (toolbarItemHtml) {
+		print(toolbarItemHtml);
+		}); %>
+	</div>
+</script>

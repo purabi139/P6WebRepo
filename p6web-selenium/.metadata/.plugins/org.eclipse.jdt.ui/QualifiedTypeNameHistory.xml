@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.oracle.pgbu.pages.p6Web15v2.LoginPage"/>
+<fullyQualifiedTypeName name="com.oracle.pgbu.common.enums.UserNames"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.interactions.Actions"/>
+<fullyQualifiedTypeName name="com.oracle.pgbu.common.entity.Timesheet"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="java.text.DateFormat"/>
+<fullyQualifiedTypeName name="java.awt.List"/>
+<fullyQualifiedTypeName name="com.oracle.pgbu.common.objects.core.DropDownMenu"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.By.ByLinkText"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.By"/>
+<fullyQualifiedTypeName name="com.oracle.pgbu.common.objects.core.Button"/>
+<fullyQualifiedTypeName name="com.oracle.pgbu.common.objects.BaseElement"/>
+<fullyQualifiedTypeName name="org.bouncycastle.asn1.icao.DataGroupHash"/>
+<fullyQualifiedTypeName name="com.primavera.ws.p6.wbs.WBS"/>
+<fullyQualifiedTypeName name="com.primavera.ws.p6.export.WBS"/>
+<fullyQualifiedTypeName name="junit.framework.Assert"/>
+<fullyQualifiedTypeName name="org.junit.Assert"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.oracle.pgbu.common.support.Activities"/>
+<fullyQualifiedTypeName name="com.oracle.pgbu.common.entity.Activity"/>
+<fullyQualifiedTypeName name="com.oracle.pgbu.p6web.helper.DataHelper"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.support.How"/>
+</qualifiedTypeNameHistroy>

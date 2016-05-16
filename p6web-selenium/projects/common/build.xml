@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<project name="ui-common" default="compile" basedir=".">
+
+	<property file="${basedir}/user.properties" />
+	<property file="${basedir}/build.properties" />
+	<property file="${basedir}/../../user.properties" />
+	<property file="${basedir}/../../build.properties" />
+
+	<property name="src.dir" value="${basedir}/src" />
+	<property name="classes.dir" value="${basedir}/classes" />
+	<property name="3rdparty.dir" value="${basedir}/../../3rdparty" />
+	<property name="reports.dir" value="${basedir}/../../reports" />
+
+	<path id="classes.classpath">
+		<pathelement location="${classes.dir}" />
+
+		<pathelement location="${3rdparty.dir}/selenium/selenium-server-standalone.jar" />
+		<pathelement location="${3rdparty.dir}/oracle/ojdbc6.jar" />
+		<pathelement location="${3rdparty.dir}/log4j/log4j.jar" />
+		<pathelement location="${3rdparty.dir}/slf4j/slf4j-api.jar" />
+		<pathelement location="${3rdparty.dir}/slf4j/slf4j-log4j12.jar" />
+		<pathelement location="${3rdparty.dir}/slf4j/jcl-over-slf4j.jar" />
+		<pathelement location="${3rdparty.dir}/commons/commons-beanutils.jar" />
+		<pathelement location="${3rdparty.dir}/commons/commons-codec.jar" />
+		<pathelement location="${3rdparty.dir}/commons/commons-collections.jar" />
+		<pathelement location="${3rdparty.dir}/commons/commons-httpclient.jar" />
+		<pathelement location="${3rdparty.dir}/commons/commons-io.jar" />
+		<pathelement location="${3rdparty.dir}/commons/commons-lang.jar" />
+		<pathelement location="${3rdparty.dir}/commons/commons-logging.jar" />
+		<pathelement location="${3rdparty.dir}/eclipselink/eclipselink.jar" />
+		<pathelement location="${3rdparty.dir}/eclipselink/javax.persistence.jar" />
+		<pathelement location="${3rdparty.dir}/j2ee/javaee.jar" />
+		<pathelement location="${3rdparty.dir}/jersey/jackson-core-asl.jar" />
+		<pathelement location="${3rdparty.dir}/jersey/jackson-mapper-asl.jar" />
+		<pathelement location="${3rdparty.dir}/jersey/jackson-xc.jar" />
+		<pathelement location="${3rdparty.dir}/jersey/jersey-core.jar" />
+		<pathelement location="${3rdparty.dir}/junit/junit.jar" />
+		<pathelement location="${3rdparty.dir}/junit/ant-junit.jar" />
+		<pathelement location="${3rdparty.dir}/cpsuite/cpsuite.jar" />
+	</path>
+
+	<target name="init">
+		<mkdir dir="${classes.dir}" />
+	</target>
+
+	<target name="clean">
+		<delete dir="${classes.dir}" />
+	</target>
+
+	<target name="compile" depends="init">
+		<javac destdir="${classes.dir}" includeantruntime="${compile.antruntime}" failonerror="${compile.failonerror}" deprecation="${compile.deprecation}" debug="${compile.debug.flag}" verbose="${compile.verbose}" source="${compile.source}" target="${compile.target}" depend="${compile.depend}" fork="${compile.fork}" executable="${compile.executable}" encoding="${compile.encoding}">
+			<src path="${src.dir}" />
+			<classpath>
+				<path refid="classes.classpath" />
+			</classpath>
+		</javac>
+		<copy file="${src.dir}/application.properties" todir="${classes.dir}" />
+	</target>
+
+	<target name="push_to_bi" description="Push results to BI" depends="compile">
+		<property environment="env" />
+		<property file="${src.dir}/application.properties" />
+
+		<java fork="true" classname="com.oracle.pgbu.common.utils.PushResultsToBi">
+			<sysproperty key="browser" value="${browser}" />
+			<sysproperty key="build.id" value="${env.BUILD_NUMBER}" />
+			<sysproperty key="project.id" value="${bi.project}" />
+			<sysproperty key="testtype" value="${bi.testtype}" />
+			<sysproperty key="biserver.url" value="${bi.server}" />
+			<sysproperty key="reports.path" value="${reports.dir}" />
+
+			<classpath>
+				<path refid="classes.classpath" />
+			</classpath>
+		</java>
+	</target>
+
+	
+	<target name="push_v10_results_to_bi" description="Push P6 v10 results to BI" depends="compile">
+		<property environment="env" />
+		<property file="${src.dir}/application.properties" />
+
+		<java fork="true" classname="com.oracle.pgbu.common.utils.PushResultsToBi">
+			<sysproperty key="browser" value="${browser}" />
+			<sysproperty key="build.id" value="${env.BUILD_NUMBER}" />
+			<sysproperty key="project.id" value="${bi.projectP610}" />
+			<sysproperty key="testtype" value="${bi.testtype}" />
+			<sysproperty key="biserver.url" value="${bi.server}" />
+			<sysproperty key="reports.path" value="${reports.dir}" />
+
+			<classpath>
+				<path refid="classes.classpath" />
+			</classpath>
+		</java>
+	</target>
+	
+	<target name="push_v9.13.1_results_to_bi" description="Push P6 v913 results to BI" depends="compile">
+			<property environment="env" />
+			<property file="${src.dir}/application.properties" />
+
+			<java fork="true" classname="com.oracle.pgbu.common.utils.PushResultsToBi">
+				<sysproperty key="browser" value="${browser}" />
+				<sysproperty key="build.id" value="${env.BUILD_NUMBER}" />
+				<sysproperty key="project.id" value="${bi.projectP6913}" />
+				<sysproperty key="testtype" value="${bi.testtype}" />
+				<sysproperty key="biserver.url" value="${bi.server}" />
+				<sysproperty key="reports.path" value="${reports.dir}" />
+
+				<classpath>
+					<path refid="classes.classpath" />
+				</classpath>
+			</java>
+		</target>
+
+	<target name="push_v10.1_results_to_bi" description="Push P6 v10v1 results to BI" depends="compile">
+		<property environment="env" />
+		<property file="${src.dir}/application.properties" />
+
+		<java fork="true" classname="com.oracle.pgbu.common.utils.PushResultsToBi">
+			<sysproperty key="browser" value="${browser}" />
+			<sysproperty key="build.id" value="${env.BUILD_NUMBER}" />
+			<sysproperty key="project.id" value="${bi.projectP610v1}" />
+			<sysproperty key="testtype" value="${bi.testtype}" />
+			<sysproperty key="biserver.url" value="${bi.server}" />
+			<sysproperty key="reports.path" value="${reports.dir}" />
+
+			<classpath>
+				<path refid="classes.classpath" />
+			</classpath>
+		</java>
+	</target>
+</project>
+
+
+

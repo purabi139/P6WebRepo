@@ -1,0 +1,30 @@
+{
+    "ID" : 1,
+    "TaskInstanceId" : 1,
+    "PerformerId" : 1,
+    "ProjectId" : 4467,
+    "Status" : "IN_USER_TO_DO_LIST",
+    "Result" : "",
+    "PerformedByUserId" : 1,
+    "Type" : "REGULAR",
+    "WorkflowInstanceId" : 1,
+    "task" : {
+        "ID" : 1,
+        "Name" : "Task1 name",
+        "Description" : "task 1 description",
+        "TaskType" : "UPDATE_FIELD_VALUE",
+        "Performer" : {
+            "ID" : 1,
+            "Type" : 2
+        },
+        "Scope" : {
+            "Type" : "EFINED",
+            "ObjectID" : 1
+        },
+        "SignOffType" : "MINIMAL_DIALOG",
+        "InstantiationRuleType" : "NONE",
+        "StepId" : 1,
+        "FormId" : 2,
+        "Serial" : 1234
+    }
+}

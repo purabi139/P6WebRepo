@@ -1,0 +1,111 @@
+<div class="row-fluid editorContainer" xmlns="http://www.w3.org/1999/html">
+    <div class="span9">
+        <div class="row-fluid">
+            <div class="span12 toolbar">
+                <div class="pull-left leftButtons"></div>
+                <div class="pull-right rightButtons"></div>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span12 diagramContainer">
+                <div class="diagramCanvas"></div>
+            </div>
+        </div>
+    </div>
+    <div class="span3 properties"></div>
+
+    <div class="taskDialogFrame modal hide fade" tabindex="-1" role="dialog" aria-labelledby="taskDialogLabel" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 id="taskDialogLabel">{{ locale.taskDialog.form_task_dialog }}</h3>
+            </div>
+            <div class="modal-body">
+                <div class="taskDialog">
+                    <div class="control-group">
+                        <label class="control-label" for="taskName">{{ locale.taskDialog.name }}</label>
+                        <div class="controls">
+                            <input class="main-control" type="text" value="" id="taskName" modelfield="Name" />
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="taskDescription">{{ locale.taskDialog.description }}</label>
+                        <div class="controls">
+                            <textarea class="main-control" rows="5" id="taskDescription" modelfield="Description"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="taskContext">{{ locale.taskDialog.context }}</label>
+                        <div class="controls">
+                            <input class="main-control" type="text" id="taskContext" />
+                        </div>
+                    </div>
+
+                    <div class="controls">
+                        <label class="checkbox">
+                            <input type="checkbox" name="useContextCheckbox" id="useAsContext" modelField="UseFormContextForWorkflow"/>
+                            {{ locale.taskDialog.use_as_wf_context }}
+                        </label>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="taskForm">{{ locale.taskDialog.form }}</label>
+                        <div class="controls">
+                            <input class="main-control" type="text" id="taskForm" />
+                        </div>
+                    </div>
+
+                    <div class="control-group formTabContainer">
+                        <label class="control-label" for="taskFormTab">{{ locale.taskDialog.tab }}</label>
+                        <div class="controls">
+                            <input class="main-control" type="text" id="taskFormTab" />
+                        </div>
+                    </div>
+
+                    <div class="control-group performerContainer">
+                        <label class="control-label" for="taskPerformer">{{ locale.taskDialog.performer }} </label>
+                        <div class="controls">
+                            <input class="main-control" type="text" id="taskPerformer" />
+                        </div>
+                    </div>
+
+                    <div class="row-fluid">
+                        <div class="span6  control-group">
+                            <label class="control-label" for="taskCompletion">{{ locale.taskDialog.completion }} </label>
+                            <div class="controls">
+                                <select class="main-control" type="text" value="" id="taskCompletion" disabled="disabled">
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="span6  control-group">
+                            <label class="control-label" for="taskVoting">{{ locale.taskDialog.voting }} </label>
+                            <div class="controls">
+                                <select class="main-control" type="text" value="" id="taskVoting" disabled="disabled">
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="taskConfirmation">{{ locale.taskDialog.confirmation }}</label>
+                        <div class="controls">
+                            <select class="main-control" type="text" value="" id="taskConfirmation" modelfield="SignOffType">
+                                <option value="{{ enums.UserTask.SignOffType.MINIMAL_DIALOG }}">{{ locale.taskDialog.sign_off_type.ok_cancel }}</option>
+                                <option value="{{ enums.UserTask.SignOffType.DIALOG_WITH_COMMENTS_AND_PASSWORD_AREAS }}">{{ locale.taskDialog.sign_off_type.ok_cancel_and_password }}</option>
+                                <option value="{{ enums.UserTask.SignOffType.NO_DIALOG }}">{{ locale.taskDialog.sign_off_type.none }}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" id="cancel" aria-hidden="true">Cancel</button>
+                <button class="btn btn-primary okButton" id="ok">OK</button>
+            </div>
+      </div>
+</div>

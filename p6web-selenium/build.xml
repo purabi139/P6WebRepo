@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<project name="selenium" default="bingit" basedir=".">
+
+	<property file="${basedir}/user.properties" />
+	<property file="${basedir}/build.properties" />
+
+	<property file="${basedir}/3pbingit_build.properties" />
+
+	<property name="snapshots.dir" value="${basedir}/snapshots" />
+	<property name="3rdparty.dir" value="${basedir}/3rdparty" />
+	<property name="js.loader.dir" value="${basedir}/projects/mock-ui/war/javascripts/" />
+	<property name="war.dir" value="${basedir}/projects/mock-ui/war" />
+
+	<target name="bingit" description="copies jars from external repositories to 3rdparty">
+		<mkdir dir="${3rdparty.dir}/bingit" />
+		<get src="http://maven.us.oracle.com:8080/archiva/repository/snapshots/com/oracle/pgbu/prm-bingit/R10-SNAPSHOT/prm-bingit-R10-SNAPSHOT.jar" dest="${3rdparty.dir}/bingit/bingit.jar" />
+		<ant antfile="${basedir}/3pbingit_build.xml" target="bingit" />
+	</target>
+
+	<!-- General Targets -->
+	<target name="clean" description="removes all generated artifacts">
+		<ant antfile="${basedir}/projects/mock-ui/build.xml" target="clean" inheritAll="false" />
+		<ant antfile="${basedir}/projects/pageobjects/build.xml" target="clean" inheritAll="false" />
+		<ant antfile="${basedir}/projects/system-tests/build.xml" target="clean" inheritAll="false" />
+		<ant antfile="${basedir}/projects/p6r10/build.xml" target="clean" inheritAll="false" />
+		<ant antfile="${basedir}/projects/common/build.xml" target="clean" inheritAll="false" />
+	</target>
+
+	<target name="compile" description="removes all generated artifacts">
+		<ant antfile="${basedir}/projects/common/build.xml" target="compile" inheritAll="false" />
+		<ant antfile="${basedir}/projects/pageobjects/build.xml" target="compile" inheritAll="false" />
+		<ant antfile="${basedir}/projects/mock-ui/build.xml" target="compile" inheritAll="false" />
+		<ant antfile="${basedir}/projects/system-tests/build.xml" target="compile" inheritAll="false" />
+		<ant antfile="${basedir}/projects/p6r10/build.xml" target="compile" inheritAll="false" />
+	</target>
+
+	<target name="unpackcommonui" unless="skip-ui">
+		<echo>Unpacking Common UI (StyleSheets)</echo>
+		<unzip src="${3rdparty.dir}/pgbu/lwf-style.zip" dest="${basedir}/projects/mock-ui/war/stylesheets" overwrite="true">
+			<patternset>
+				<include name="*.css" />
+			</patternset>
+		</unzip>
+	</target>
+
+	<target name="unpackwfui">
+		<echo>Unpacking Workflows / Forms UI</echo>
+		<unzip src="${3rdparty.dir}/pgbu/upwf-ui.zip" dest="${basedir}/projects/mock-ui/war" overwrite="true" />
+	</target>
+
+	<target name="build-ui" description="calls unpackcommonui,unpackwfui" depends="unpackcommonui,unpackwfui" />
+
+	<target name="usemockdata" description="replaces the useMock: false to useMock: true in loader.js">
+		<replace file="${js.loader.dir}/loader.js" token="useMock: false" value="useMock: true" />
+	</target>
+
+	<target name="run-mocksuite" description="run mock-ui tests suite" depends="usemockdata">
+		<ant antfile="${basedir}/projects/mock-ui/build.xml" target="runsuite" inheritAll="false" />
+	</target>
+
+	<target name="deploy" if="weblogic.start">
+		<ant antfile="${basedir}/deploy.xml" target="weblogicstart" inheritAll="false" />
+	</target>
+
+	<!-- Jenkins Target -->
+	<target name="run_ui_tests" description="task to start weblogic, and run all UI tests" depends="bingit">
+		<antcall target="deploy" />
+		<ant antfile="${basedir}/projects/system-tests/build.xml" target="run_regression" inheritAll="false" />
+
+		<antcall target="push_to_bi" />
+	</target>
+
+	<target name="run_dist_tests" description="run all UI tests from distributed environment" depends="bingit">
+		<ant antfile="${basedir}/projects/system-tests/build.xml" target="test" inheritAll="false" />
+		<ant antfile="${basedir}/projects/p6r10/build.xml" target="test" inheritAll="false" />
+	</target>
+
+	<!-- FindBugs -->
+	<path id="findbugs.classpath">
+		<pathelement location="${3rdparty.dir}/findbugs/lib/findbugs.jar" />
+		<pathelement location="${3rdparty.dir}/findbugs/lib/dom4j-1.6.1.jar" />
+		<pathelement location="${3rdparty.dir}/findbugs/lib/bcel.jar" />
+		<pathelement location="${3rdparty.dir}/findbugs/lib/jsr305.jar" />
+		<pathelement location="${3rdparty.dir}/findbugs/lib/asm-3.3.jar" />
+		<pathelement location="${3rdparty.dir}/findbugs/lib/asm-tree-3.3.jar" />
+	</path>
+
+	<target name="findbugs" description="runs findbugs in the gui">
+		<ant antfile="${basedir}/projects/findbugs/build.xml" target="jar" inheritAll="false" />
+		<java classname="edu.umd.cs.findbugs.LaunchAppropriateUI" fork="yes">
+			<arg value="-project" />
+			<arg value="${basedir}/qa.fbp" />
+
+			<jvmarg value="-Xmx2000m" />
+			<jvmarg value="-Dfindbugs.home=${3rdparty.dir}/findbugs" />
+			<jvmarg value="-Dfindbugs.noSummary=true" />
+			<jvmarg value="-Dfbcontrib.RMC.riskynames=length" />
+
+			<classpath refid="findbugs.classpath" />
+		</java>
+	</target>
+
+	<target name="findbugs-jenkins" description="findbugs task for continuous build">
+		<ant antfile="${basedir}/projects/findbugs/build.xml" target="jar" inheritAll="false" />
+		<taskdef name="findbugs" classname="edu.umd.cs.findbugs.anttask.FindBugsTask" classpathref="findbugs.classpath" />
+
+		<property name="findbugs.report.dir" value="${basedir}/reports/findbugs" />
+		<mkdir dir="${findbugs.report.dir}" />
+
+		<findbugs output="xml:withMessages" home="${3rdparty.dir}/findbugs" conserveSpace="true" reportLevel="medium" projectFile="${basedir}/qa.fbp" outputFile="${findbugs.report.dir}/findbugs_result.xml" jvmargs="-Xms800m -Xmx1200m -Dfindbugs.noSummary=true" timeout="30000000" />
+	</target>
+
+	<target name="push_to_bi" description="push results to bi" if="bi.push">
+		<ant antfile="${basedir}/projects/common/build.xml" target="push_to_bi" inheritAll="false">
+			<property name="reports.dir" value="${basedir}/reports/up" />
+		</ant>
+		<ant antfile="${basedir}/projects/common/build.xml" target="push_to_bi" inheritAll="false">
+			<property name="reports.dir" value="${basedir}/reports/p6r10" />
+		</ant>
+	</target>
+</project>
+
+
+

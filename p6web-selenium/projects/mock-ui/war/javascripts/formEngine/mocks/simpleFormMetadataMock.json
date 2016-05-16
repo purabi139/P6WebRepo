@@ -1,0 +1,113 @@
+[
+    {
+        "type" : "FORM",
+        "label" : "Simple Form",
+        "children" : [
+            {
+                "defaultValue" : "text field 6",
+                "bounds" : {
+                    "numberMin" : 1,
+                    "numberMax" : 50
+                },
+                "type" : "STRING",
+                "dataKey" : "TextBox2_1",
+                "label" : "Dorit & Shlomi",
+                "id" : "99",
+                "readOnly" : false
+            },
+            {
+                "type" : "GROUP",
+                "label" : "group label 1",
+                "description" : "group 1 description",
+                "layout" : {
+                    "border" : true,
+                    "showDescription" : true
+                },
+                "children" : [
+                    {
+                        "defaultValue" : "text field 1",
+                        "bounds" : {
+                            "numberMin" : 1,
+                            "numberMax" : 50
+                        },
+                        "type" : "STRING",
+                        "dataKey" : "TextBox1_1",
+                        "label" : "EPS/WBS tree maximum levels",
+                        "id" : "1001",
+                        "readOnly" : true
+                    },
+                    {
+                        "defaultValue" : "text field 2",
+                        "bounds" : {
+                            "numberMin" : 1,
+                            "numberMax" : 25
+                        },
+                        "type" : "STRING",
+                        "dataKey" : "TextBox1_2",
+                        "label" : "OBS tree maximum levels",
+                        "id" : "1002",
+                        "readOnly" : false
+                    },
+                    {
+                        "type" : "GROUP",
+                        "label" : "Group in group",
+                        "description" : "group within a group",
+                        "layout" : {
+                            "border" : true,
+                            "showDescription" : true
+                        },
+                        "children" : [
+                            {
+                                "defaultValue" : "text1 in group.. ",
+                                "bounds" : {
+                                    "numberMin" : 1,
+                                    "numberMax" : 50
+                                },
+                                "type" : "STRING",
+                                "dataKey" : "TextBox1_1",
+                                "label" : "text 11",
+                                "id" : "88",
+                                "readOnly" : true
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type" : "GROUP",
+                "label" : "group label 2",
+                "description" : "group 2 description",
+                "layout" : {
+                    "border" : true,
+                    "showDescription" : true
+                },
+                "children" : [
+                    {
+                        "defaultValue" : "text field 3",
+                        "bounds" : {
+                            "numberMin" : 1,
+                            "numberMax" : 50
+                        },
+                        "type" : "STRING",
+                        "dataKey" : "TextBox2_1",
+                        "label" : "EPS/WBS tree maximum levels",
+                        "id" : "1003",
+                        "readOnly" : false
+                    },
+                    {
+                        "defaultValue" : "text field 4",
+                        "bounds" : {
+                            "numberMin" : 1,
+                            "numberMax" : 25
+                        },
+                        "type" : "STRING",
+                        "dataKey" : "TextBox1_2",
+                        "label" : "OBS tree maximum levels",
+                        "id" : "1004",
+                        "readOnly" : false
+                    }
+                ]
+            }
+        ]
+    }
+]

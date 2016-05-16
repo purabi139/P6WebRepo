@@ -1,0 +1,16 @@
+<div class="{{ recognizedAs }}">
+	<div class="form-content tabbable tabbed-div">
+		<ul class="nav nav-tabs">
+			<% _.each(tabConfigs, function (tabConfig) { %>
+			<li class="{{ tabConfig.activeType }}"><a href="javascript:void(0);" data-target=".{{ tabConfig.recognizedAs }}" data-toggle="tab">{{ tabConfig.label }}</a>
+				<div class="arrowDownDiv"></div>
+			</li>
+			<% }); %>
+		</ul>
+		<div class="tab-content">
+			<% _.each(tabConfigs, function (tabConfig) { %>
+			<div class="tab-pane {{ tabConfig.activeType }} {{ tabConfig.recognizedAs }}"></div>
+			<% }); %>
+		</div>
+	</div>
+</div>

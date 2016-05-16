@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="deploy" default="weblogicstart" basedir=".">
+	<property file="${basedir}/deploy.properties" />
+	<property name="3rdparty.dir" value="${basedir}/3rdparty" />
+	<property name="weblogic.server" value="AdminServer" />
+	<taskdef resource="cargo.tasks">
+		<classpath>
+			<pathelement location="${3rdparty.dir}/commons/commons-discovery.jar" />
+			<pathelement location="${3rdparty.dir}/log4j/log4j.jar" />
+			<pathelement location="${3rdparty.dir}/slf4j/slf4j-api.jar" />
+			<pathelement location="${3rdparty.dir}/slf4j/slf4j-log4j12.jar" />
+			<pathelement location="${3rdparty.dir}/slf4j/jcl-over-slf4j.jar" />
+			<pathelement location="${3rdparty.dir}/cargo/cargo-core-api-generic.jar" />
+			<pathelement location="${3rdparty.dir}/cargo/cargo-core-api-container.jar" />
+			<pathelement location="${3rdparty.dir}/cargo/cargo-core-api-module.jar" />
+			<pathelement location="${3rdparty.dir}/cargo/cargo-core-api-util.jar" />
+			<pathelement location="${3rdparty.dir}/cargo/cargo-core-container-weblogic.jar" />
+			<pathelement location="${3rdparty.dir}/cargo/cargo-ant.jar" />
+			<pathelement location="${3rdparty.dir}/jdom/jdom.jar" />
+		</classpath>
+	</taskdef>
+
+	<taskdef name="wldeploy" classname="weblogic.ant.taskdefs.management.WLDeploy">
+		<classpath location="${weblogic.home}/server/lib/weblogic.jar" />
+	</taskdef>
+
+	<target name="weblogicstop">
+		<cargo containerId="${weblogic.cargo.container}" home="${weblogic.home}" action="stop">
+			<configuration type="existing" home="${weblogic.domain}">
+				<property name="cargo.java.home" value="${weblogic.java.home}" />
+				<property name="cargo.servlet.port" value="${weblogic.port}" />
+				<property name="cargo.weblogic.administrator.user" value="${weblogic.admin.user}" />
+				<property name="cargo.weblogic.administrator.password" value="${weblogic.admin.password}" />
+			</configuration>
+		</cargo>
+		<sleep seconds="10" />
+	</target>
+
+	<target name="weblogicstart" depends="weblogicstop">
+		<antcall target="clean_domain" />
+		<cargo containerId="${weblogic.cargo.container}" home="${weblogic.home}" action="start" timeout="500000" output="${basedir}/weblogic_console.log">
+			<extraClasspath>
+				<pathelement location="${weblogic.common.components.home}/modules/oracle.jdbc_11.2.0/ojdbc6dms.jar" />
+				<pathelement location="${weblogic.home}/server/lib/weblogic_sp.jar" />
+				<pathelement location="${weblogic.home}/server/lib/weblogic.jar" />
+				<pathelement location="${weblogic.home}/server/lib/webservices.jar" />
+				<pathelement location="${weblogic.home}/../oracle_common/modules/org.apache.ant_1.7.1/lib/ant-all.jar" />
+				<pathelement location="${weblogic.home}/../oracle_common/modules/net.sf.antcontrib_1.1.0.0_1-0b2/lib/antcontrib.jar" />
+				<pathelement location="${weblogic.home}/modules/features/oracle.wls.common.nodemanager_1.0.0.0.jar" />
+				<pathelement location="${weblogic.common.components.home}/modules/internal/features/jrf_wlsFmw_oracle.jrf.wls.classpath_12.1.2.jar" />
+				<pathelement location="${weblogic.common.components.home}/modules/com.oracle.cie.config-wls-online_8.0.0.0.jar" />
+				<pathelement location="${weblogic.home}/common/derby/lib/derbynet.jar" />
+				<pathelement location="${weblogic.home}/common/derby/lib/derbyclient.jar" />
+				<pathelement location="${weblogic.home}/common/derby/lib/derby.jar" />
+				<pathelement location="${weblogic.home}/server/lib/xqrl.jar" />
+				<pathelement location="${3rdparty.dir}/clover/clover.jar" />
+			</extraClasspath>
+			<configuration type="existing" home="${weblogic.domain}">
+				<property name="cargo.hostname" value="${weblogic.hostname}" />
+				<property name="cargo.java.home" value="${weblogic.java.home}" />
+				<property name="cargo.servlet.port" value="${weblogic.port}" />
+				<property name="cargo.weblogic.server" value="${weblogic.server}" />
+				<property name="cargo.weblogic.administrator.user" value="${weblogic.admin.user}" />
+				<property name="cargo.weblogic.administrator.password" value="${weblogic.admin.password}" />
+				<property name="cargo.jvmargs" value="${weblogic.mem.args} -Dweblogic.Name=${weblogic.server}" />
+			</configuration>
+		</cargo>
+
+		<wldeploy action="deploy" verbose="true" debug="false" name="primavera" source="${avondale.war.location}" user="${weblogic.admin.user}" password="${weblogic.admin.password}" adminurl="t3://${weblogic.hostname}:${weblogic.port}" targets="${weblogic.server}" />
+	</target>
+
+	<target name="clean_domain" if="domain.clean">
+		<delete dir="${weblogic.domain}" />
+		<untar src="${weblogic.domain}/../${weblogic.domain.name}.tar.gz" dest="${weblogic.domain}/../" compression="gzip" />
+	</target>
+</project>

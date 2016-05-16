@@ -1,0 +1,258 @@
+<?xml version="1.0"?>
+<project name="3pbingit" default="bingit" basedir=".">
+
+	<property file="${basedir}/user.properties" />
+	<property file="${basedir}/build.properties" />
+
+	<property file="${basedir}/3pbingit_build.properties" />
+
+	<property name="snapshots.dir" value="${basedir}/snapshots" />
+	<property name="3rdparty.dir" value="${basedir}/3rdparty" />
+
+	<property name="archiva-snapshots" value="http://maven.us.oracle.com:8080/archiva/repository/snapshots" />
+	<property name="archiva" value="http://maven.us.oracle.com:8080/archiva/repository/internal" />
+	<property name="non-proxied-archiva" value="http://maven.us.oracle.com:8080/archiva/repository/snapshots" />
+
+	<taskdef name="bingit" classname="com.oracle.pgbu.bingit.BinGitTask" classpath="${3rdparty.dir}/bingit/bingit.jar" />
+
+	<target name="bingit" description="copies jars from external repositories to 3rdparty">
+		<setproxy proxyhost="" socksproxyhost="" />
+		<antcall target="copyunifiedplatform" />
+		<antcall target="copychromedriver" />
+		<antcall target="copyiedriver" />
+		<antcall target="copyasm" />
+		<antcall target="copycargo" />
+		<antcall target="copycommons" />
+		<antcall target="copycontiperf" />
+		<antcall target="cpsuite" />
+		<antcall target="copyeclipselink" />
+		<antcall target="copyfindbugs" />
+		<antcall target="copyj2ee" />
+		<antcall target="copyjdom" />
+		<antcall target="copyjersey" />
+		<antcall target="copyjunit" />
+		<antcall target="copyoracle" />
+		<antcall target="copyselenium" />
+		<antcall target="copylog4j" />
+		<antcall target="copyslf4j" />
+		<antcall target="copyspring" />
+		<antcall target="copytaglets" />
+		<antcall target="copyunifiedplatformui" />
+		<antcall target="copyjodatime" />
+		<antcall target="copycxf"/>
+		<antcall target="copymssql"/>
+		<antcall target="copyjson"/>
+		<antcall target="copyjenkins"/>
+	</target>
+
+	 <target name="copycxf">
+        <mkdir dir="${3rdparty.dir}/cxf"/>
+        <bingit repo="${archiva}" groupId="org.apache.cxf" artifactId="cxf-bundle" version="${cxf.version}" to="${3rdparty.dir}/cxf/cxf-${cxf.version}.jar"/>
+		<bingit repo="${archiva}" groupId="wsdl4j" artifactId="wsdl4j" version="${cxf.wsdl4j.version}" to="${3rdparty.dir}/cxf/wsdl4j.jar"/>
+	    <bingit repo="${archiva}" groupId="org.apache.ws.commons.schema" artifactId="XmlSchema" version="${cxf.XmlSchema.version}" to="${3rdparty.dir}/cxf/XmlSchema.jar"/>
+	</target>
+	<target name="copymssql">
+        <mkdir dir="${3rdparty.dir}/sql"/>
+        <bingit repo="${archiva}" groupId="com.microsoft" artifactId="sqljdbc" version="${sqljdbc.version}" to="${3rdparty.dir}/sql/sqljdbc.jar"/>
+    </target>
+	
+	<target name="copyjson">
+        <mkdir dir="${3rdparty.dir}/json"/>
+        <bingit repo="${archiva}" groupId="oracle" artifactId="json-java" version="${java-json.version}" to="${3rdparty.dir}/json/java-json.jar"/>
+    </target>
+	
+	<target name="copyjenkins">
+        <mkdir dir="${3rdparty.dir}/jenkins"/>
+        <bingit repo="${archiva-snapshots}" groupId="org.jenkinsci" artifactId="jenkinsci-client" version="${jenkins.version}" to="${3rdparty.dir}/jenkins/testInProgress-client-1.1.jar"/>
+    </target>
+	
+		
+	<target name="copyunifiedplatform">
+		<mkdir dir="${3rdparty.dir}/unifiedPlatform" />
+		<bingit repo="${archiva-snapshots}" groupId="com.oracle.pgbu.unifiedplatform" artifactId="common" version="${unifiedPlatformcommon.version}" to="${3rdparty.dir}/unifiedPlatform/common.jar" />
+		<bingit repo="${archiva-snapshots}" groupId="com.oracle.pgbu.unifiedplatform" artifactId="rules" version="${unifiedPlatform.version}" to="${3rdparty.dir}/unifiedPlatform/rules.jar" />
+		<bingit repo="${archiva-snapshots}" groupId="com.oracle.pgbu.unifiedplatform" artifactId="rest" version="${unifiedPlatform.version}" to="${3rdparty.dir}/unifiedPlatform/rest.jar" />
+		<bingit repo="${archiva-snapshots}" groupId="com.oracle.pgbu.unifiedplatform" artifactId="scheduling" version="${unifiedPlatform.version}" to="${3rdparty.dir}/unifiedPlatform/scheduling.jar" />
+		<bingit repo="${archiva-snapshots}" groupId="com.oracle.pgbu.unifiedplatform" artifactId="i18n" version="${unifiedPlatform.version}" to="${3rdparty.dir}/unifiedPlatform/i18n.jar" />
+		<bingit repo="${archiva-snapshots}" groupId="com.oracle.pgbu.unifiedplatform" artifactId="meta" version="${unifiedPlatform.version}" to="${3rdparty.dir}/unifiedPlatform/meta.jar" />
+		<bingit repo="${archiva-snapshots}" groupId="com.oracle.pgbu.unifiedplatform" artifactId="model" version="${unifiedPlatform.version}" to="${3rdparty.dir}/unifiedPlatform/model.jar" />
+		<bingit repo="${archiva-snapshots}" groupId="com.oracle.pgbu.unifiedplatform" artifactId="persist" version="${unifiedPlatform.version}" to="${3rdparty.dir}/unifiedPlatform/persist.jar" />
+		<bingit repo="${archiva-snapshots}" groupId="com.oracle.pgbu.unifiedplatform" artifactId="intgtest" version="${unifiedPlatform.version}" to="${3rdparty.dir}/unifiedPlatform/intgtest.jar" />
+		<bingit repo="${archiva-snapshots}" groupId="com.oracle.pgbu.unifiedplatform" artifactId="intgservices" version="${unifiedPlatform.version}" to="${3rdparty.dir}/unifiedPlatform/intgservices.jar" />
+		<bingit repo="${archiva}" groupId="com.oracle" artifactId="pgbu.utilities" version="${utilities.version}" to="${3rdparty.dir}/unifiedPlatform/utilities.jar" />
+		<bingit repo="${archiva-snapshots}" groupId="com.primavera" artifactId="prm-bre" version="${p6.version}" to="${3rdparty.dir}/unifiedPlatform/prm-bre.jar" />
+		<bingit repo="${archiva-snapshots}" groupId="com.primavera" artifactId="prm-intgtest" version="${p6.version}" to="${3rdparty.dir}/unifiedPlatform/prm-intgtest.jar" />
+		<bingit repo="${archiva-snapshots}" groupId="com.primavera" artifactId="prm-intgservices" version="${p6.version}" to="${3rdparty.dir}/unifiedPlatform/prm-intgservices.jar" />
+		<bingit repo="${archiva-snapshots}" groupId="com.primavera" artifactId="prm-guisupport" version="${p6.version}" to="${3rdparty.dir}/unifiedPlatform/prm-guisupport.jar" />
+	</target>
+
+	<target name="copytaglets">
+		<mkdir dir="${3rdparty.dir}/taglets" />
+		<bingit repo="${archiva-snapshots}" groupId="com.oracle.pgbu.unifiedplatform" artifactId="taglets" version="${unifiedPlatformtaglets.version}" to="${3rdparty.dir}/taglets/taglets.jar" />
+	</target>
+
+	<target name="copyunifiedplatformui">
+		<mkdir dir="${3rdparty.dir}/pgbu" />
+		<bingit repo="${archiva-snapshots}" groupId="com.oracle.pgbu" artifactId="lwf-style" explode="false" extension="zip" version="${lwf-style.version}" to="${3rdparty.dir}/pgbu/lwf-style.zip" />
+		<bingit repo="${archiva-snapshots}" groupId="com.oracle.pgbu.unifiedplatform.admin" artifactId="admin-ui" explode="false" extension="zip" version="${unifiedPlatformadminui.version}" to="${3rdparty.dir}/pgbu/admin-ui.zip" />
+		<bingit repo="${archiva-snapshots}" groupId="com.oracle.pgbu.unifiedplatform.wf" artifactId="upwf-ui" explode="false" extension="zip" version="${unifiedPlatformadminui.version}" to="${3rdparty.dir}/pgbu/upwf-ui.zip" />
+	</target>
+
+	<target name="copycargo">
+		<mkdir dir="${3rdparty.dir}/cargo" />
+		<bingit repo="${archiva}" groupId="org.codehaus.cargo" artifactId="cargo-core-api-generic" version="${cargo.version}" to="${3rdparty.dir}/cargo/cargo-core-api-generic.jar" />
+		<bingit repo="${archiva}" groupId="org.codehaus.cargo" artifactId="cargo-core-api-container" version="${cargo.version}" to="${3rdparty.dir}/cargo/cargo-core-api-container.jar" />
+		<bingit repo="${archiva}" groupId="org.codehaus.cargo" artifactId="cargo-core-api-module" version="${cargo.version}" to="${3rdparty.dir}/cargo/cargo-core-api-module.jar" />
+		<bingit repo="${archiva}" groupId="org.codehaus.cargo" artifactId="cargo-core-api-util" version="${cargo.version}" to="${3rdparty.dir}/cargo/cargo-core-api-util.jar" />
+		<bingit repo="${archiva}" groupId="org.codehaus.cargo" artifactId="cargo-core-container-weblogic" version="${cargo.version}" to="${3rdparty.dir}/cargo/cargo-core-container-weblogic.jar" />
+		<bingit repo="${archiva}" groupId="org.codehaus.cargo" artifactId="cargo-ant" version="${cargo.version}" to="${3rdparty.dir}/cargo/cargo-ant.jar" />
+	</target>
+
+	<target name="copychromedriver">
+		<mkdir dir="${3rdparty.dir}/chrome" />
+		<bingit repo="${archiva-snapshots}" groupId="com.google.chromium.chromedriver" artifactId="chromedriver-win" version="${chromedriver-win.version}" explode="true" extension="zip" to="${3rdparty.dir}/chrome/win/" />
+		<bingit repo="${archiva-snapshots}" groupId="com.google.chromium.chromedriver" artifactId="chromedriver-linux32" version="${chromedriver-linux32.version}" explode="true" extension="zip" to="${3rdparty.dir}/chrome/linux32/" />
+		<bingit repo="${archiva-snapshots}" groupId="com.google.chromium.chromedriver" artifactId="chromedriver-linux64" version="${chromedriver-linux64.version}" explode="true" extension="zip" to="${3rdparty.dir}/chrome/linux64/" />
+		<bingit repo="${archiva-snapshots}" groupId="com.google.chromium.chromedriver" artifactId="chromedriver-mac" version="${chromedriver-mac.version}" explode="true" extension="zip" to="${3rdparty.dir}/chrome/mac/" />
+	</target>
+
+	<target name="copyiedriver">
+		<mkdir dir="${3rdparty.dir}/internetexplorer/x32" />
+		<mkdir dir="${3rdparty.dir}/internetexplorer/x64" />
+		<bingit repo="${archiva-snapshots}" groupId="org.openqa.selenium" artifactId="IEDriverServer" version="x32" extension="exe" to="${3rdparty.dir}/internetexplorer/x32/IEDriverServer.exe" />
+		<bingit repo="${archiva-snapshots}" groupId="org.openqa.selenium" artifactId="IEDriverServer" version="x64" extension="exe" to="${3rdparty.dir}/internetexplorer/x64/IEDriverServer.exe" />
+	</target>
+
+	<target name="copycommons">
+		<mkdir dir="${3rdparty.dir}/commons" />
+		<bingit repo="${archiva}" groupId="commons-beanutils" artifactId="commons-beanutils" version="${commons-beanutils.version}" to="${3rdparty.dir}/commons/commons-beanutils.jar" />
+		<bingit repo="${archiva}" groupId="commons-codec" artifactId="commons-codec" version="${commons-codec.version}" to="${3rdparty.dir}/commons/commons-codec.jar" />
+		<bingit repo="${archiva}" groupId="commons-collections" artifactId="commons-collections" version="${commons-collections.version}" to="${3rdparty.dir}/commons/commons-collections.jar" />
+		<bingit repo="${archiva}" groupId="commons-httpclient" artifactId="commons-httpclient" version="${commons-httpclient.version}" to="${3rdparty.dir}/commons/commons-httpclient.jar" />
+		<bingit repo="${archiva}" groupId="commons-io" artifactId="commons-io" version="${commons-io.version}" to="${3rdparty.dir}/commons/commons-io.jar" />
+		<bingit repo="${archiva}" groupId="commons-lang" artifactId="commons-lang" version="${commons-lang.version}" to="${3rdparty.dir}/commons/commons-lang.jar" />
+		<bingit repo="${archiva}" groupId="commons-discovery" artifactId="commons-discovery" version="${commons-discovery.version}" to="${3rdparty.dir}/commons/commons-discovery.jar" />
+	</target>
+
+	<target name="copycontiperf">
+		<mkdir dir="${3rdparty.dir}/databene" />
+		<bingit repo="${archiva}" groupId="org.databene.contiperf" artifactId="contiperf" version="${contiperf.version}" to="${3rdparty.dir}/databene/contiperf.jar" />
+	</target>
+
+	<target name="cpsuite">
+		<mkdir dir="${3rdparty.dir}/cpsuite" />
+		<bingit repo="${archiva}" groupId="org.junit.extensions" artifactId="cpsuite" version="${cpsuite.version}" to="${3rdparty.dir}/cpsuite/cpsuite.jar" />
+	</target>
+
+	<target name="copyeclipselink">
+		<mkdir dir="${3rdparty.dir}/eclipselink" />
+		<bingit repo="${archiva}" groupId="org.eclipse.persistence" artifactId="eclipselink" version="${eclipselink.version}" to="${3rdparty.dir}/eclipselink/eclipselink.jar" />
+		<bingit repo="${archiva}" groupId="javax.persistence" artifactId="persistence-api" version="${persistence.version}" to="${3rdparty.dir}/eclipselink/javax.persistence.jar" />
+	</target>
+
+	<target name="copyasm">
+		<mkdir dir="${3rdparty.dir}/asm" />
+		<bingit repo="${archiva}" groupId="asm" artifactId="asm-tree" version="${asm.version}" to="${3rdparty.dir}/asm/asm-tree.jar" />
+	</target>
+
+	<target name="copyfindbugs">
+		<mkdir dir="${3rdparty.dir}/findbugs/lib" />
+		<bingit repo="${archiva}" groupId="com.google.code.findbugs" artifactId="findbugs" version="${findbugs.version}" to="${3rdparty.dir}/findbugs/lib/findbugs.jar" />
+		<bingit repo="${archiva}" groupId="com.google.code.findbugs" artifactId="findbugs-ant" version="${findbugs.version}" to="${3rdparty.dir}/findbugs/lib/findbugs-ant.jar" />
+		<bingit repo="${archiva}" groupId="com.google.code.findbugs" artifactId="bcel" version="${findbugs.version}" to="${3rdparty.dir}/findbugs/lib/bcel.jar" />
+		<bingit repo="${archiva}" groupId="com.google.code.findbugs" artifactId="jFormatString" version="${findbugs.version}" to="${3rdparty.dir}/findbugs/lib/jFormatString.jar" />
+		<bingit repo="${archiva}" groupId="com.google.code.findbugs" artifactId="jsr305" version="${findbugs.version}" to="${3rdparty.dir}/findbugs/lib/jsr305.jar" />
+
+		<!-- dups: note we need version numbers here, as findbugs finds classpath via manifest entry -->
+		<bingit repo="${archiva}" groupId="asm" artifactId="asm" version="${asm.fb.version}" to="${3rdparty.dir}/findbugs/lib/asm-3.3.jar" />
+		<bingit repo="${archiva}" groupId="asm" artifactId="asm-analysis" version="${asm.fb.version}" to="${3rdparty.dir}/findbugs/lib/asm-analysis-3.3.jar" />
+		<bingit repo="${archiva}" groupId="asm" artifactId="asm-commons" version="${asm.fb.version}" to="${3rdparty.dir}/findbugs/lib/asm-commons-3.3.jar" />
+		<bingit repo="${archiva}" groupId="asm" artifactId="asm-tree" version="${asm.fb.version}" to="${3rdparty.dir}/findbugs/lib/asm-tree-3.3.jar" />
+		<bingit repo="${archiva}" groupId="asm" artifactId="asm-util" version="${asm.fb.version}" to="${3rdparty.dir}/findbugs/lib/asm-util-3.3.jar" />
+		<bingit repo="${archiva}" groupId="dom4j" artifactId="dom4j" version="${dom4j.version}" to="${3rdparty.dir}/findbugs/lib/dom4j-1.6.1.jar" />
+		<bingit repo="${archiva}" groupId="jaxen" artifactId="jaxen" version="${jaxen.version}" to="${3rdparty.dir}/findbugs/lib/jaxen-1.1.1.jar" />
+		<bingit repo="${archiva}" groupId="commons-lang" artifactId="commons-lang" version="${commons-lang.version}" to="${3rdparty.dir}/findbugs/lib/commons-lang-2.4.jar" />
+	</target>
+
+	<target name="copyj2ee">
+		<mkdir dir="${3rdparty.dir}/j2ee" />
+		<bingit repo="${archiva}" groupId="oracle" artifactId="javaee" version="${javaee.version}" to="${3rdparty.dir}/j2ee/javaee.jar" />
+	</target>
+
+	<target name="copyjdom">
+		<mkdir dir="${3rdparty.dir}/jdom" />
+		<bingit repo="${archiva}" groupId="org.jdom" artifactId="jdom" version="${jdom.version}" to="${3rdparty.dir}/jdom/jdom.jar" />
+	</target>
+
+	<target name="copyjersey">
+		<mkdir dir="${3rdparty.dir}/jersey" />
+		<bingit repo="${archiva}" groupId="com.sun.jersey" artifactId="jersey-core" version="${jersey.version}" to="${3rdparty.dir}/jersey/jersey-core.jar" />
+		<bingit repo="${archiva}" groupId="com.sun.jersey" artifactId="jersey-client" version="${jersey.version}" to="${3rdparty.dir}/jersey/jersey-client.jar" />
+		<bingit repo="${archiva}" groupId="com.sun.jersey" artifactId="jersey-server" version="${jersey.version}" to="${3rdparty.dir}/jersey/jersey-server.jar" />
+		<bingit repo="${archiva}" groupId="com.sun.jersey" artifactId="jersey-json" version="${jersey.version}" to="${3rdparty.dir}/jersey/jersey-json.jar" />
+		<bingit repo="${archiva}" groupId="com.sun.jersey.contribs" artifactId="jersey-spring" version="${jersey.version}" to="${3rdparty.dir}/jersey/jersey-spring.jar" />
+		<bingit repo="${archiva}" groupId="javax.ws.rs" artifactId="jsr311-api" version="${jsr311.version}" to="${3rdparty.dir}/jersey/jsr311-api.jar" />
+		<bingit repo="${archiva}" groupId="org.codehaus.jackson" artifactId="jackson-core-asl" version="${jackson.version}" to="${3rdparty.dir}/jersey/jackson-core-asl.jar" />
+		<bingit repo="${archiva}" groupId="org.codehaus.jackson" artifactId="jackson-jaxrs" version="${jackson.version}" to="${3rdparty.dir}/jersey/jackson-jaxrs.jar" />
+		<bingit repo="${archiva}" groupId="org.codehaus.jackson" artifactId="jackson-mapper-asl" version="${jackson.version}" to="${3rdparty.dir}/jersey/jackson-mapper-asl.jar" />
+		<bingit repo="${archiva}" groupId="org.codehaus.jackson" artifactId="jackson-xc" version="${jackson.version}" to="${3rdparty.dir}/jersey/jackson-xc.jar" />
+		<bingit repo="${archiva}" groupId="org.codehaus.jettison" artifactId="jettison" version="${jettison.version}" to="${3rdparty.dir}/jersey/jettison.jar" />
+	</target>
+
+	<target name="copyjunit">
+		<mkdir dir="${3rdparty.dir}/junit" />
+		<bingit repo="${archiva}" groupId="org.apache.ant" artifactId="ant-junit" version="${ant_.version}" to="${3rdparty.dir}/junit/ant-junit.jar" />
+		<bingit repo="${archiva}" groupId="junit" artifactId="junit" version="${junit.version}" to="${3rdparty.dir}/junit/junit.jar" />
+		<bingit repo="${archiva}" groupId="com.carrotsearch.randomizedtesting" artifactId="junit4-ant" version="${junit4-ant.version}" to="${3rdparty.dir}/junit/junit4-ant.jar" />
+	</target>
+
+	<target name="copyoracle">
+		<mkdir dir="${3rdparty.dir}/oracle" />
+		<bingit repo="${archiva}" groupId="oracle" artifactId="ojdbc6" version="${ojdbc6.version}" to="${3rdparty.dir}/oracle/ojdbc6.jar" />
+	</target>
+
+	<target name="copyselenium">
+		<mkdir dir="${3rdparty.dir}/selenium" />
+		<bingit repo="${archiva-snapshots}" groupId="org.openqa.selenium" artifactId="selenium-server" version="${selenium-server.version}" to="${3rdparty.dir}/selenium/selenium-server-standalone.jar" />
+		<bingit repo="${archiva-snapshots}" groupId="org.openqa.selenium" artifactId="selenium-server-src" version="${selenium-server.version}" to="${3rdparty.dir}/selenium/selenium-server-src.jar" />
+	</target>
+
+	<target name="copylog4j">
+		<mkdir dir="${3rdparty.dir}/log4j" />
+		<bingit repo="${archiva}" groupId="log4j" artifactId="log4j" version="${log4j.version}" to="${3rdparty.dir}/log4j/log4j.jar" />
+	</target>
+
+	<target name="copyslf4j">
+		<mkdir dir="${3rdparty.dir}/slf4j" />
+		<bingit repo="${archiva}" groupId="org.slf4j" artifactId="slf4j-api" version="${slf4j.version}" to="${3rdparty.dir}/slf4j/slf4j-api.jar" />
+		<bingit repo="${archiva}" groupId="org.slf4j" artifactId="slf4j-log4j12" version="${slf4j.version}" to="${3rdparty.dir}/slf4j/slf4j-log4j12.jar" />
+		<bingit repo="${archiva}" groupId="org.slf4j" artifactId="jcl-over-slf4j" version="${slf4j.version}" to="${3rdparty.dir}/slf4j/jcl-over-slf4j.jar" />
+	</target>
+
+	<target name="copyspring">
+		<mkdir dir="${3rdparty.dir}/spring" />
+		<bingit repo="${archiva}" groupId="org.springframework" artifactId="spring-aop" version="${spring.version}" to="${3rdparty.dir}/spring/spring-aop.jar" />
+		<bingit repo="${archiva}" groupId="org.springframework" artifactId="spring-aspects" version="${spring.version}" to="${3rdparty.dir}/spring/spring-aspects.jar" />
+		<bingit repo="${archiva}" groupId="org.springframework" artifactId="spring-tx" version="${spring.version}" to="${3rdparty.dir}/spring/spring-tx.jar" />
+		<bingit repo="${archiva}" groupId="org.springframework" artifactId="spring-beans" version="${spring.version}" to="${3rdparty.dir}/spring/spring-beans.jar" />
+		<bingit repo="${archiva}" groupId="org.springframework" artifactId="spring-context" version="${spring.version}" to="${3rdparty.dir}/spring/spring-context.jar" />
+		<bingit repo="${archiva}" groupId="org.springframework" artifactId="spring-context-support" version="${spring.version}" to="${3rdparty.dir}/spring/spring-context-support.jar" />
+		<bingit repo="${archiva}" groupId="org.springframework" artifactId="spring-core" version="${spring.version}" to="${3rdparty.dir}/spring/spring-core.jar" />
+		<bingit repo="${archiva}" groupId="org.springframework" artifactId="spring-expression" version="${spring.version}" to="${3rdparty.dir}/spring/spring-expression.jar" />
+		<bingit repo="${archiva}" groupId="org.springframework" artifactId="spring-instrument" version="${spring.version}" to="${3rdparty.dir}/spring/spring-instrument.jar" />
+		<bingit repo="${archiva}" groupId="org.springframework" artifactId="spring-instrument-tomcat" version="${spring.version}" to="${3rdparty.dir}/spring/spring-instrument-tomcat.jar" />
+		<bingit repo="${archiva}" groupId="org.springframework" artifactId="spring-jdbc" version="${spring.version}" to="${3rdparty.dir}/spring/spring-jdbc.jar" />
+		<bingit repo="${archiva}" groupId="org.springframework" artifactId="spring-jms" version="${spring.version}" to="${3rdparty.dir}/spring/spring-jms.jar" />
+		<bingit repo="${archiva}" groupId="org.springframework" artifactId="spring-orm" version="${spring.version}" to="${3rdparty.dir}/spring/spring-orm.jar" />
+		<bingit repo="${archiva}" groupId="org.springframework" artifactId="spring-oxm" version="${spring.version}" to="${3rdparty.dir}/spring/spring-oxm.jar" />
+		<bingit repo="${archiva}" groupId="org.springframework" artifactId="spring-test" version="${spring.version}" to="${3rdparty.dir}/spring/spring-test.jar" />
+		<bingit repo="${archiva}" groupId="org.springframework" artifactId="spring-web" version="${spring.version}" to="${3rdparty.dir}/spring/spring-web.jar" />
+		<bingit repo="${archiva}" groupId="org.springframework" artifactId="spring-webmvc" version="${spring.version}" to="${3rdparty.dir}/spring/spring-webmvc.jar" />
+	</target>
+
+	<target name="copyjodatime">
+		<mkdir dir="${3rdparty.dir}/jodatime" />
+		<bingit repo="${archiva}" groupId="joda-time" artifactId="joda-time" version="${joda-time.version}" to="${3rdparty.dir}/jodatime/joda-time.jar" />
+	</target>
+
+</project>

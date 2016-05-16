@@ -1,0 +1,36 @@
+<div class="functionEditorContainer">
+    <div class="row-fluid">
+        <div class="span12">
+            <h3>{{ locale.label.functionEditor.title }}</h3>
+
+            <div class="control-group">
+                <label class="control-label" for="objectTypeDropdown">{{ locale.label.functionEditor.object_type_label }}</label>
+
+                <div class="controls">
+                    <select id="objectTypeDropdown" class="input-xlarge fieldWithLabel">
+                        <option value="ProjectFlexEO">Project</option>
+                        <option value="ActivityEO">Activity</option>
+                    </select>
+                </div>
+
+                <label class="control-label" for="fieldNameDropdown">{{ locale.label.functionEditor.field_name_label }}</label>
+
+                <div class="controls">
+                    <select id="fieldNameDropdown" class="input-xlarge fieldWithLabel"></select>
+                </div>
+
+                <label class="control-label" for="functionCodeInput">{{ locale.label.functionEditor.function_code_label }}</label>
+
+                <div class="controls">
+                    <textarea id="functionCodeInput" class="input-small fieldWithLabel" spellcheck="false" rows="20"></textarea>
+                </div>
+            </div>
+
+            <div class="buttonsDiv">
+                <button class="btn btn-danger pull-left deleteFunctionButton" disabled="disabled">{{ locale.label.delete_label }}</button>
+                <button class="btn btn-primary pull-right saveFunctionButton" disabled="disabled">{{ locale.label.save }}</button>
+            </div>
+
+        </div>
+    </div>
+</div>

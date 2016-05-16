@@ -1,0 +1,41 @@
+<script type="text/html" class="htm-action-panel">
+	<div class="action-panel closed">
+		<div class="action-toggle">
+			<img class="open-arrow" src="img/panel_Arrow_full.png" />
+		</div>
+		<div class="action-content">
+			<img class="close-arrow" src="img/panel_BlueArrow.png" />
+
+		</div>
+		<div class="transition-view"></div>
+	</div>
+</script>
+
+<script type="text/html" class="htm-action-section">
+	<div class="section">
+		<h4>{{ title }}</h4>
+		<ul class="actions">
+		</ul>
+	</div>
+</script>
+
+
+<script type="text/html" class="htm-new-rfi-modal">
+	<div class="modal hide striped-tile new-rfi-modal in">
+		<div class="modal-header">
+			<a class="pull-right" data-dismiss="modal">
+				<div class="modal-close"></div>
+			</a>
+
+			<h3>{{ locale_create_new_rfi }}</h3>
+		</div>
+		<div class="modal-body">
+			<p class="error-text">{{ locale_required_fields }}</p>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-action cancel">{{ locale_cancel }}</button>
+			<button class="btn btn-action save">{{ locale_save }}</button>
+		</div>
+
+	</div>
+</script>

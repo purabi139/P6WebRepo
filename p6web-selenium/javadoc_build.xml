@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<project name="javadoc" default="javadoc" basedir=".">
+
+	<property name="javadoc.dir" value="${basedir}/javadoc" />
+	<property name="3rdparty.dir" value="${basedir}/3rdparty" />
+
+	<target name="bingit">
+		<ant antfile="${basedir}/3pbingit_build.xml" target="bingit" inheritAll="false" />
+	</target>
+
+	<target name="javadoc" depends="bingit" description="Create the JavaDoc pages for all code in Avondale application">
+		<path id="all.java.files">
+			<dirset dir="${basedir}">
+				<exclude name="**/findbugs/**"/>
+				<include name="**/src" />
+				<include name="**/test" />
+			</dirset>
+		</path>
+
+		<javadoc sourcepathref="all.java.files" packagenames="com.oracle.pgbu.*" destdir="${javadoc.dir}" Private="no" breakiterator="yes" author="true" version="true" link="http://java.sun.com/javase/6/docs/api/" windowtitle="Avondale Selenium Automation - JavaDocs" doctitle="Avondale Selenium Automation - JavaDocs" bottom="Copyright &#169; Oracle, Inc. All Rights Reserved." maxmemory="768m">
+
+			<taglet name="com.oracle.pgbu.taglets.UseCaseTaglet" path="${3rdparty.dir}/taglets/taglets.jar" />
+			<taglet name="com.oracle.pgbu.taglets.StepsTaglet" path="${3rdparty.dir}/taglets/taglets.jar" />
+			<taglet name="com.oracle.pgbu.taglets.NoteTaglet" path="${3rdparty.dir}/taglets/taglets.jar" />
+
+			<tag name="Example" description="Example:" />
+			<tag name="enumeration" description="Enumeration:" />
+			<tag name="Optional" description="Optional:" />
+			<tag name="class" description="Class:" />
+
+			<classpath>
+				<pathelement location="${3rdparty.dir}/selenium/selenium-server-standalone.jar" />
+				<pathelement location="${3rdparty.dir}/oracle/ojdbc6.jar" />
+				<pathelement location="${3rdparty.dir}/log4j/log4j.jar" />
+				<pathelement location="${3rdparty.dir}/slf4j/slf4j-api.jar" />
+				<pathelement location="${3rdparty.dir}/slf4j/slf4j-log4j12.jar" />
+				<pathelement location="${3rdparty.dir}/slf4j/jcl-over-slf4j.jar" />
+				<pathelement location="${3rdparty.dir}/unifiedPlatform/common.jar" />
+				<pathelement location="${3rdparty.dir}/unifiedPlatform/i18n.jar" />
+				<pathelement location="${3rdparty.dir}/unifiedPlatform/intgservices.jar" />
+				<pathelement location="${3rdparty.dir}/unifiedPlatform/intgtest.jar" />
+				<pathelement location="${3rdparty.dir}/unifiedPlatform/model.jar" />
+				<pathelement location="${3rdparty.dir}/unifiedPlatform/rest.jar" />
+				<pathelement location="${3rdparty.dir}/unifiedPlatform/rules.jar" />
+				<pathelement location="${3rdparty.dir}/unifiedPlatform/scheduling.jar" />
+				<pathelement location="${3rdparty.dir}/unifiedPlatform/meta.jar" />
+				<pathelement location="${3rdparty.dir}/unifiedPlatform/persist.jar" />
+				<pathelement location="${3rdparty.dir}/unifiedPlatform/utilities.jar" />
+				<pathelement location="${3rdparty.dir}/unifiedPlatform/prm-bre.jar" />
+				<pathelement location="${3rdparty.dir}/unifiedPlatform/prm-intgservices.jar" />
+				<pathelement location="${3rdparty.dir}/unifiedPlatform/prm-intgtest.jar" />
+				<pathelement location="${3rdparty.dir}/unifiedPlatform/prm-guisupport.jar" />
+				<pathelement location="${3rdparty.dir}/commons/commons-beanutils.jar" />
+				<pathelement location="${3rdparty.dir}/commons/commons-codec.jar" />
+				<pathelement location="${3rdparty.dir}/commons/commons-collections.jar" />
+				<pathelement location="${3rdparty.dir}/commons/commons-httpclient.jar" />
+				<pathelement location="${3rdparty.dir}/commons/commons-io.jar" />
+				<pathelement location="${3rdparty.dir}/commons/commons-lang.jar" />
+				<pathelement location="${3rdparty.dir}/eclipselink/eclipselink.jar" />
+				<pathelement location="${3rdparty.dir}/j2ee/javaee.jar" />
+				<pathelement location="${3rdparty.dir}/jersey/jackson-core-asl.jar" />
+				<pathelement location="${3rdparty.dir}/jersey/jackson-mapper-asl.jar" />
+				<pathelement location="${3rdparty.dir}/jersey/jackson-xc.jar" />
+				<pathelement location="${3rdparty.dir}/jersey/jersey-core.jar" />
+				<pathelement location="${3rdparty.dir}/spring/spring-web.jar" />
+				<pathelement location="${3rdparty.dir}/spring/spring-core.jar" />
+				<pathelement location="${3rdparty.dir}/unifiedPlatform/intgtest.jar" />
+				<pathelement location="${3rdparty.dir}/unifiedPlatform/intgservices.jar" />
+				<pathelement location="${3rdparty.dir}/junit/junit.jar" />
+				<pathelement location="${3rdparty.dir}/junit/ant-junit.jar" />
+				<pathelement location="${3rdparty.dir}/junit/junit4-ant.jar" />
+				<pathelement location="${3rdparty.dir}/databene/contiperf.jar" />
+				<pathelement location="${3rdparty.dir}/cpsuite/cpsuite.jar" />
+			</classpath>
+		</javadoc>
+	</target>
+</project>

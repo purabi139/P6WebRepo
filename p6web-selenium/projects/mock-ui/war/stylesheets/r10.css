@@ -1,0 +1,8 @@
+
+div.bordered-fieldset>fieldset{height:100%;border:1px solid #c5cfe5;border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px;-ms-border-radius:3px;-o-border-radius:3px;}div.bordered-fieldset>fieldset legend{font-size:18px;font-weight:400;color:#0e2d5f;font-family:"Open Sans",sans-serif;margin-left:20px;}
+div.bordered-fieldset>fieldset div.fieldset-content{margin:17px 20px;}
+div.bordered-fieldset.fit-parent{height:100%;}div.bordered-fieldset.fit-parent>fieldset{height:100%;}div.bordered-fieldset.fit-parent>fieldset div.fieldset-content{height:90%;}
+div.bordered-fieldset legend.small{font-size:14px;font-weight:400;color:#0e2d5f;font-family:"Open Sans",sans-serif;}
+div.bordered-fieldset legend.large{font-size:20px;font-weight:400;color:#0e2d5f;font-family:"Open Sans",sans-serif;}
+div.bordered-fieldset.fit-content{display:inline-block;}
+div.bordered-fieldset .input-long{width:550px;height:65px;}

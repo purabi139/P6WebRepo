@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html manifest="manifest.appcache">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Unified Platform</title>
+	<link rel="stylesheet" type="text/css" href="lib/jquery/css/ui-lightness/jquery-ui.css" />
+	<link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="stylesheets/bootstrap-overrides.css" />
+	<link rel="stylesheet" type="text/css" href="lib/oui/css/oui_min.css" />
+	<link rel="stylesheet" type="text/css" href="lib/codemirror/css/codemirror.css" />
+	<link rel="stylesheet" type="text/css" href="lib/codemirror/css/eclipse.css" />
+	<link rel="stylesheet" type="text/css" href="stylesheets/theme.css" />
+	<link rel="stylesheet" type="text/css" href="stylesheets/r10.css" />
+	<link rel="stylesheet" type="text/css" href="stylesheets/combiner.css" />
+	<!--[if gt IE 6]>
+		<link rel="stylesheet" type="text/css" href="stylesheets/internetExplorer.css"/>
+	<![endif]-->
+</head>
+<body>
+	<div class="global-flash"></div>
+	<div class="container-fluid page-content">
+		<div class="row-fluid page-header"></div>
+		<div class="row-fluid toolbar"></div>
+		<div class="row-fluid content"></div>
+		<div class="row-fluid actions-overlay"></div>
+	</div>
+	<script defer="defer" src="lib/require/js/require.min.js" data-main="javascripts/loader" type="text/javascript"></script>
+</body>
+</html>

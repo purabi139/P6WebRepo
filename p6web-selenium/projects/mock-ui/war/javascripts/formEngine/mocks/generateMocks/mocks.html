@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="FormTabbedMetaData.js"></script>
+	<script src="FormMetaData.js"></script>
+	<script src="FormData.js"></script>
+	<title>Generate JSON</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<link rel="stylesheet" type="text/css" href="lib/jquery/css/ui-lightness/jquery-ui.css" />
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css" />
+
+	<link rel="stylesheet/less" type="text/css" href="stylesheets/training.less" />
+	<!--[if gt IE 6]>
+		<link rel="stylesheet/less" type="text/css" href="stylesheets/internetExplorer.less"/>
+	<![endif]-->
+</head>
+<body>
+	<div class="container-fluid content">
+		<div class="row-fluid padding-helper">
+			<div class="span2 left-column"></div>
+			<div class="span8 central-column"></div>
+			<div class="span2 right-column"></div>
+		</div>
+	</div>
+
+	<p>
+		<label># of Tabs</label>
+		<input id="tabs" size="4" />
+		<label># of Groups</label>
+		<input id="groups" size="4" />
+		<label># of Widgets</label>
+		<input id="widgets" size="4" />
+	</p>
+	<p>
+		<button onclick="document.getElementById('area').innerHTML = (getMetaData(groups.value,widgets.value)) ">Generate Metadata Json</button>
+		<button onclick="document.getElementById('area').innerHTML = (getTabbedMetaData(tabs.value,groups.value,widgets.value)) ">Generate Tabbed Metadata Json</button>
+		<button onclick="document.getElementById('area').innerHTML = (getData(groups.value,widgets.value)) ">Generate Data Json</button>
+		<button src="FormTabbedMetaData.js" onclick="document.getElementById('area').innerHTML ='' ">Clear</button>
+	</p>
+	<pre id="output">
+		<textarea id="area" rows="50" cols="125"></textarea>
+	</pre>
+</body>
+</html>

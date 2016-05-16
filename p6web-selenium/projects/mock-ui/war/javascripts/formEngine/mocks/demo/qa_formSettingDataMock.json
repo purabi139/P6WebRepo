@@ -1,0 +1,320 @@
+{
+    "projectCategoryTypes": [
+        {
+            "sequenceNumber": 600,
+            "superFlag": false,
+            "projectCategoryTypeId": 45,
+            "projectCategoryType": "Project_Code_A",
+            "projectCategoryShortLen": 7,
+            "projectCategoryTypeWT": 0,
+            "maxProjectCategoryWT": 0,
+            "projectCategoryTypeValues": [
+                {
+                    "sequenceNumber": 3,
+                    "projectCategoryTypeId": null,
+                    "projectCategoryId": null,
+                    "projectCategoryShortName": "030",
+                    "parentProjectCategoryId": null,
+                    "projectCategoryName": "030",
+                    "projectCategoryWT": null
+                },
+                {
+                    "sequenceNumber": 2,
+                    "projectCategoryTypeId": null,
+                    "projectCategoryId": null,
+                    "projectCategoryShortName": "020",
+                    "parentProjectCategoryId": null,
+                    "projectCategoryName": "020",
+                    "projectCategoryWT": null
+                },
+                {
+                    "sequenceNumber": 6,
+                    "projectCategoryTypeId": null,
+                    "projectCategoryId": null,
+                    "projectCategoryShortName": "060",
+                    "parentProjectCategoryId": null,
+                    "projectCategoryName": "060",
+                    "projectCategoryWT": null
+                },
+                {
+                    "sequenceNumber": 8,
+                    "projectCategoryTypeId": null,
+                    "projectCategoryId": null,
+                    "projectCategoryShortName": "070",
+                    "parentProjectCategoryId": null,
+                    "projectCategoryName": "070",
+                    "projectCategoryWT": null
+                },
+                {
+                    "sequenceNumber": 204,
+                    "projectCategoryTypeId": null,
+                    "projectCategoryId": null,
+                    "projectCategoryShortName": "100",
+                    "parentProjectCategoryId": null,
+                    "projectCategoryName": "100",
+                    "projectCategoryWT": null
+                },
+                {
+                    "sequenceNumber": 10,
+                    "projectCategoryTypeId": null,
+                    "projectCategoryId": null,
+                    "projectCategoryShortName": "080",
+                    "parentProjectCategoryId": null,
+                    "projectCategoryName": "080",
+                    "projectCategoryWT": null
+                },
+                {
+                    "sequenceNumber": 4,
+                    "projectCategoryTypeId": null,
+                    "projectCategoryId": null,
+                    "projectCategoryShortName": "040",
+                    "parentProjectCategoryId": null,
+                    "projectCategoryName": "040",
+                    "projectCategoryWT": null
+                },
+                {
+                    "sequenceNumber": 104,
+                    "projectCategoryTypeId": null,
+                    "projectCategoryId": null,
+                    "projectCategoryShortName": "090",
+                    "parentProjectCategoryId": null,
+                    "projectCategoryName": "090",
+                    "projectCategoryWT": null
+                },
+                {
+                    "sequenceNumber": 0,
+                    "projectCategoryTypeId": null,
+                    "projectCategoryId": null,
+                    "projectCategoryShortName": "NA",
+                    "parentProjectCategoryId": null,
+                    "projectCategoryName": "NA",
+                    "projectCategoryWT": null
+                },
+                {
+                    "sequenceNumber": 1,
+                    "projectCategoryTypeId": null,
+                    "projectCategoryId": null,
+                    "projectCategoryShortName": "010",
+                    "parentProjectCategoryId": null,
+                    "projectCategoryName": "010",
+                    "projectCategoryWT": null
+                },
+                {
+                    "sequenceNumber": 5,
+                    "projectCategoryTypeId": null,
+                    "projectCategoryId": null,
+                    "projectCategoryShortName": "050",
+                    "parentProjectCategoryId": null,
+                    "projectCategoryName": "050",
+                    "projectCategoryWT": null
+                }
+            ]
+        },
+		
+		{
+            "sequenceNumber": 600,
+            "superFlag": false,
+            "projectCategoryTypeId": 45,
+            "projectCategoryType": "Project_Code_C",
+            "projectCategoryShortLen": 7,
+            "projectCategoryTypeWT": 0,
+            "maxProjectCategoryWT": 0,
+            "projectCategoryTypeValues": [
+                {
+                    "sequenceNumber": 5,
+                    "projectCategoryTypeId": null,
+                    "projectCategoryId": null,
+                    "projectCategoryShortName": "050",
+                    "parentProjectCategoryId": null,
+                    "projectCategoryName": "050",
+                    "projectCategoryWT": null
+                }
+            ]
+        },
+		
+		
+		{
+            "sequenceNumber": 600,
+            "superFlag": false,
+            "projectCategoryTypeId": 45,
+            "projectCategoryType": "Project_Code_D",
+            "projectCategoryShortLen": 7,
+            "projectCategoryTypeWT": 0,
+            "maxProjectCategoryWT": 0,
+            "projectCategoryTypeValues": [
+                {
+                    "sequenceNumber": 5,
+                    "projectCategoryTypeId": null,
+                    "projectCategoryId": null,
+                    "projectCategoryShortName": "050",
+                    "parentProjectCategoryId": null,
+                    "projectCategoryName": "050",
+                    "projectCategoryWT": null
+                }
+            ]
+        },
+		
+		
+		{
+            "sequenceNumber": 600,
+            "superFlag": false,
+            "projectCategoryTypeId": 45,
+            "projectCategoryType": "Project_Code_E",
+            "projectCategoryShortLen": 7,
+            "projectCategoryTypeWT": 0,
+            "maxProjectCategoryWT": 0,
+            "projectCategoryTypeValues": [
+                {
+                    "sequenceNumber": 5,
+                    "projectCategoryTypeId": null,
+                    "projectCategoryId": null,
+                    "projectCategoryShortName": "050",
+                    "parentProjectCategoryId": null,
+                    "projectCategoryName": "050",
+                    "projectCategoryWT": null
+                }
+            ]
+        },
+		
+		{
+            "sequenceNumber": 600,
+            "superFlag": false,
+            "projectCategoryTypeId": 45,
+            "projectCategoryType": "Project_Code_Business_Process",
+            "projectCategoryShortLen": 7,
+            "projectCategoryTypeWT": 0,
+            "maxProjectCategoryWT": 0,
+            "projectCategoryTypeValues": [
+                {
+                    "sequenceNumber": 5,
+                    "projectCategoryTypeId": null,
+                    "projectCategoryId": null,
+                    "projectCategoryShortName": "Commercial Construction",
+                    "parentProjectCategoryId": null,
+                    "projectCategoryName": "Commercial Construction",
+                    "projectCategoryWT": null
+                }
+            ]
+        },
+		
+		{
+            "sequenceNumber": 600,
+            "superFlag": false,
+            "projectCategoryTypeId": 45,
+            "projectCategoryType": "Project_Code_Business_Segment",
+            "projectCategoryShortLen": 7,
+            "projectCategoryTypeWT": 0,
+            "maxProjectCategoryWT": 0,
+            "projectCategoryTypeValues": [
+                {
+                    "sequenceNumber": 5,
+                    "projectCategoryTypeId": null,
+                    "projectCategoryId": null,
+                    "projectCategoryShortName": "Energy Services",
+                    "parentProjectCategoryId": null,
+                    "projectCategoryName": "Energy Services",
+                    "projectCategoryWT": null
+                }
+            ]
+        },
+		
+		{
+            "sequenceNumber": 600,
+            "superFlag": false,
+            "projectCategoryTypeId": 45,
+            "projectCategoryType": "Project_Code_Stratigic_Objective",
+            "projectCategoryShortLen": 7,
+            "projectCategoryTypeWT": 0,
+            "maxProjectCategoryWT": 0,
+            "projectCategoryTypeValues": [
+                {
+                    "sequenceNumber": 5,
+                    "projectCategoryTypeId": null,
+                    "projectCategoryId": null,
+                    "projectCategoryShortName": "Increase short term revenues",
+                    "parentProjectCategoryId": null,
+                    "projectCategoryName": "Increase short term revenues",
+                    "projectCategoryWT": null
+                }
+            ]
+        },
+		
+		
+		{
+            "sequenceNumber": 600,
+            "superFlag": false,
+            "projectCategoryTypeId": 45,
+            "projectCategoryType": "Project_Code_Project_Type",
+            "projectCategoryShortLen": 7,
+            "projectCategoryTypeWT": 0,
+            "maxProjectCategoryWT": 0,
+            "projectCategoryTypeValues": [
+                {
+                    "sequenceNumber": 5,
+                    "projectCategoryTypeId": null,
+                    "projectCategoryId": null,
+                    "projectCategoryShortName": "Capital Construction",
+                    "parentProjectCategoryId": null,
+                    "projectCategoryName": "Capital Construction",
+                    "projectCategoryWT": null
+                }
+            ]
+        },
+        {
+            "sequenceNumber": 100,
+            "superFlag": false,
+            "projectCategoryTypeId": 11,
+            "projectCategoryType": "Project_Code_B",
+            "projectCategoryShortLen": 11,
+            "projectCategoryTypeWT": 0,
+            "maxProjectCategoryWT": 0,
+            "projectCategoryTypeValues": [
+                {
+                    "sequenceNumber": 0,
+                    "projectCategoryTypeId": null,
+                    "projectCategoryId": null,
+                    "projectCategoryShortName": "1 Mandatory",
+                    "parentProjectCategoryId": null,
+                    "projectCategoryName": "1 Mandatory",
+                    "projectCategoryWT": null
+                },
+                {
+                    "sequenceNumber": 108,
+                    "projectCategoryTypeId": null,
+                    "projectCategoryId": null,
+                    "projectCategoryShortName": "4 Low",
+                    "parentProjectCategoryId": null,
+                    "projectCategoryName": "4 Low Priority",
+                    "projectCategoryWT": null
+                },
+                {
+                    "sequenceNumber": 2,
+                    "projectCategoryTypeId": null,
+                    "projectCategoryId": null,
+                    "projectCategoryShortName": "2 High",
+                    "parentProjectCategoryId": null,
+                    "projectCategoryName": "2 High Priority",
+                    "projectCategoryWT": null
+                },
+                {
+                    "sequenceNumber": 5,
+                    "projectCategoryTypeId": null,
+                    "projectCategoryId": null,
+                    "projectCategoryShortName": "3 Medium",
+                    "parentProjectCategoryId": null,
+                    "projectCategoryName": "3 Medium Priority",
+                    "projectCategoryWT": null
+                },
+                {
+                    "sequenceNumber": 208,
+                    "projectCategoryTypeId": null,
+                    "projectCategoryId": null,
+                    "projectCategoryShortName": "5 Nice2Have",
+                    "parentProjectCategoryId": null,
+                    "projectCategoryName": "5 Nice to Have",
+                    "projectCategoryWT": null
+                }
+            ]
+        }
+    ]
+}

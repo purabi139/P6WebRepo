@@ -1,0 +1,78 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600);
+.pgbu-page-container{padding:24px;}.pgbu-page-container div.row-fluid{box-sizing:border-box !important;-webkit-box-sizing:border-box !important;-moz-box-sizing:border-box !important;-ms-box-sizing:border-box !important;-o-box-sizing:border-box !important;}
+.pgbu-page-container .control-group input,.pgbu-page-container .control-group select,.pgbu-page-container .control-group textarea{box-sizing:border-box !important;-webkit-box-sizing:border-box !important;-moz-box-sizing:border-box !important;-ms-box-sizing:border-box !important;-o-box-sizing:border-box !important;width:100%;resize:none;}
+.pgbu-page-container .control-group input{height:27px;}
+.login-page{top:200px;}.login-page.well{background-color:#ffffff;}@media only screen and (min-device-width:481px) and (max-device-width:1024px) and (orientation:landscape){.login-page.well{margin-top:0px;}}
+.login-page .login{margin-top:10px;}.login-page .login .form-horizontal{margin-top:50px;}
+.login-page .login h3{margin-left:10px;}
+.login-page .login .control-label{width:110px;}
+.login-page .login .controls{margin-left:130px;}
+.login-page .login .submit{cursor:pointer;background:url(../img/login_inactive.png);background-size:46px 46px;vertical-align:middle;background-repeat:no-repeat;height:46px;width:46px;margin-top:65px;margin-left:15px;}.login-page .login .submit:hover{background:url(../img/login_active.png);background-size:46px 46px;vertical-align:middle;background-repeat:no-repeat;height:46px;width:46px;}
+.login-page .login .submit:hover{background:url(../img/login_active.png);background-size:46px 46px;vertical-align:middle;background-repeat:no-repeat;height:46px;width:46px;}
+.login-page .login .submit:hover{background:url(../img/login_active.png);background-size:46px 46px;vertical-align:middle;background-repeat:no-repeat;height:46px;width:46px;}
+.login-page .login .submit:hover{background:url(../img/login_active.png);background-size:46px 46px;vertical-align:middle;background-repeat:no-repeat;height:46px;width:46px;}
+.login-page .login .submit:hover{background:url(../img/login_active.png);background-size:46px 46px;vertical-align:middle;background-repeat:no-repeat;height:46px;width:46px;}
+.login-page .login .submit:hover{background:url(../img/login_active.png);background-size:46px 46px;vertical-align:middle;background-repeat:no-repeat;height:46px;width:46px;}
+.login-page .login .error{color:#ff0000;}
+.login-page .details{margin-top:10px;}.login-page .details>div{padding-right:10px;}
+.login-page .details .feature{margin-top:15px;}
+.login-page .details ul{list-style:disc;margin-left:100px;margin-top:5px;}.login-page .details ul li{color:#ccc;}.login-page .details ul li span{color:#000000;}
+.login-page .details .capital-planning{margin-top:10px;width:80px;height:75px;}
+.login-page .details .project-controls{margin-top:10px;margin-left:15px;width:65px;height:75px;}
+.login-page .details .contract-manager{margin-top:10px;margin-left:10px;width:70px;height:75px;}
+footer.timestamp{position:absolute;bottom:0px;width:90%;}
+.page-header{height:35px;margin:15px 0px 0px 5px;}.page-header h3{user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;cursor:default;}
+body>div.page-content>div.actions-overlay{user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;position:fixed;bottom:0;right:0;display:none;width:100%;padding:8px 0 15px 0;background-color:rgba(0, 0, 0, 0.9);border-top:1px solid #0182fa;}body>div.page-content>div.actions-overlay a{margin-left:7px;}
+body>div.page-content>div.actions-overlay .message{margin-left:30px;color:#ffffff;vertical-align:middle;cursor:default;font-size:16px;font-weight:bold;}
+body>div.page-content>div.actions-overlay .btn-toolbar{margin:0 30px 0 10px;height:26px;}body>div.page-content>div.actions-overlay .btn-toolbar .dropdown-menu{min-width:0;padding:0;}body>div.page-content>div.actions-overlay .btn-toolbar .dropdown-menu li>a{margin:0;}
+.closed{display:none;}
+img{max-width:inherit;}
+div.diagramContainer{position:relative;height:768px;overflow:auto;border:solid 1px #cccccc;}
+div.diagramCanvas{overflow:hidden;background:#f6f9fb url("../img/workflows/grid-cell.png");cursor:default;font-family:Tahoma;font-size:10px;}
+div.noGrid{background-color:#e9edf1;}
+#centerAnchor{height:1px;width:1px;position:absolute;overflow:hidden;visibility:hidden;}
+div.parallelStepLineGraphics{position:absolute;left:3px;top:0;border-left:dotted 1px #4d83b6;height:100%;width:0;overflow:hidden;}
+div.parallelStepLineHandle{position:absolute;left:0;top:9px;border:solid 1px #4d83b6;height:5px;width:5px;overflow:hidden;}
+.step{position:absolute;z-index:1;}.step div.finalAndInitialStepName{position:absolute;left:50%;top:16px;width:46px;margin-left:-23px;text-align:center;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.step div.conditionStepName{position:absolute;left:50%;top:29px;width:52px;margin-left:-26px;text-align:center;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.step div.parallelStepName{position:absolute;left:50%;top:3px;width:94%;margin-left:-47%;text-align:center;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.step div.parallelStepTrackName{position:absolute;top:27px;width:108px;text-align:center;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.step div.parallelStepTrackLanesBackground{position:absolute;left:0;background-color:#e9edf1;border-left:solid 2px #4d83b6;border-right:solid 2px #4d83b6;border-bottom:solid 2px #4d83b6;}
+.step div.parallelStepLine,.step div.parallelStepLineSelected{position:absolute;height:26px;width:7px;overflow:hidden;}
+.step div.parallelStepLine div.parallelStepLineHandle{background-color:#ffffff;}
+.step div.parallelStepLineSelected div.parallelStepLineHandle{background-color:#00ffff;}
+.step div.parallelStepLineSelected div.parallelStepLineGraphics{box-shadow:0px 0px 0px 1px #00ffff;-webkit-box-shadow:0px 0px 0px 1px #00ffff;-moz-box-shadow:0px 0px 0px 1px #00ffff;-ms-box-shadow:0px 0px 0px 1px #00ffff;-o-box-shadow:0px 0px 0px 1px #00ffff;}
+.step div.taskStepName{position:absolute;left:50%;top:17px;width:98px;margin-left:-49px;text-align:center;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.step img.taskStepTasksIcon{position:absolute;top:8px;}
+.step img.taskStepEllipsisIcon{position:absolute;left:92px;top:8px;}
+.step.jsPlumb_dragged{cursor:move;}
+.transitionOptionName{width:45px;text-align:center;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;background-color:#f6f9fb;}
+.transitionHandle{z-index:1;margin-top:-1px;}
+.endingArrowSelected{stroke:#00ffff;}
+.transitionIndicator,.transitionIndicator-disabled,.transitionIndicator-selected{position:absolute;left:50%;height:14px;width:14px;margin-left:-7px;background:url("../img/workflows/transitionIndicator.png") no-repeat;}.finalAndInitialStepName~.transitionIndicator,.finalAndInitialStepName~.transitionIndicator-disabled,.finalAndInitialStepName~.transitionIndicator-selected{bottom:5px;}
+.conditionStepName~.transitionIndicator,.conditionStepName~.transitionIndicator-disabled,.conditionStepName~.transitionIndicator-selected{bottom:12px;}
+.parallelStepName~.transitionIndicator,.parallelStepName~.transitionIndicator-disabled,.parallelStepName~.transitionIndicator-selected{bottom:6px;}
+.parallelStepTrackName:nth-child(4)~.transitionIndicator,.parallelStepTrackName:nth-child(4)~.transitionIndicator-disabled,.parallelStepTrackName:nth-child(4)~.transitionIndicator-selected{margin-left:-6px;}
+.parallelStepTrackName:nth-child(5)~.transitionIndicator,.parallelStepTrackName:nth-child(5)~.transitionIndicator-disabled,.parallelStepTrackName:nth-child(5)~.transitionIndicator-selected{margin-left:-9px;}
+.parallelStepTrackName:nth-child(6)~.transitionIndicator,.parallelStepTrackName:nth-child(6)~.transitionIndicator-disabled,.parallelStepTrackName:nth-child(6)~.transitionIndicator-selected{margin-left:-7px;}
+.parallelStepTrackName:nth-child(7)~.transitionIndicator,.parallelStepTrackName:nth-child(7)~.transitionIndicator-disabled,.parallelStepTrackName:nth-child(7)~.transitionIndicator-selected{margin-left:-10px;}
+.taskStepName~.transitionIndicator,.taskStepName~.transitionIndicator-disabled,.taskStepName~.transitionIndicator-selected{bottom:3px;}
+.transitionIndicator{background-position:0 0;z-index:2;}.transitionIndicator:hover{background-position:-14px 0;}
+.transitionIndicator-disabled{z-index:1;background-position:-42px 0;}
+.transitionIndicator-selected{z-index:2;background-position:-28px 0;}
+div.zoomContainer{position:absolute;}div.zoomContainer .zoom{position:absolute;left:46px;top:-3px;}
+.toolbar [class^="icon-"]{height:17px;width:17px;background-position:0 0;}
+.toolbar .icon-category-based-decision-step{background-image:url("../img/workflows/toolbar/categoryBasedDecisionStep.png");}
+.toolbar .icon-delete{background-image:url("../img/workflows/toolbar/delete.png");}
+.toolbar .icon-manual-decision-step{background-image:url("../img/workflows/toolbar/manualDecisionStep.png");}
+.toolbar .icon-parallel-step{background-image:url("../img/workflows/toolbar/parallelStep.png");width:22px;}
+.toolbar .icon-task-step{background-image:url("../img/workflows/toolbar/taskStep.png");width:21px;}
+.properties .tabbed-div{margin-top:10px;background-color:#f6f9fb;}.properties .tabbed-div .tab-content{height:768px;margin-bottom:-17px;}
+.editorContainer .taskDialogFrame .formTabContainer,.editorContainer .taskDialogFrame .performerContainer{border-bottom:solid 1px #BACBDA;padding-bottom:5px;}
+.functionEditorContainer{}.functionEditorContainer .marked{background:#F07373 !important;}
+.functionEditorContainer .buttonsDiv{margin-top:20px;}
+.functionEditorContainer .CodeMirror.cm-s-eclipse{background-color:#ffffff;}
+html{min-height:100%;}html body{min-height:100%;background-image:linear-gradient(top, #fafcfe 0%, #a2b5c7 100%);background-image:-o-linear-gradient(top, #fafcfe 0%, #a2b5c7 100%);background-image:-moz-linear-gradient(top, #fafcfe 0%, #a2b5c7 100%);background-image:-webkit-linear-gradient(top, #fafcfe 0%, #a2b5c7 100%);background-image:-ms-linear-gradient(top, #fafcfe 0%, #a2b5c7 100%);}
+html .bordered-fieldset>fieldset{border-color:#7792ad;}
+legend{font-family:"Open Sans",sans-serif !important;}
+label{color:#4d83b6;}

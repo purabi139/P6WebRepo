@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/common"/>
+	<classpathentry kind="var" path="QA_HG_HOME/3rdparty/selenium/selenium-server-standalone.jar" sourcepath="/QA_HG_HOME/3rdparty/selenium/selenium-server-src.jar"/>
+	<classpathentry kind="var" path="QA_HG_HOME/3rdparty/slf4j/slf4j-api.jar"/>
+	<classpathentry kind="var" path="QA_HG_HOME/3rdparty/slf4j/slf4j-log4j12.jar"/>
+	<classpathentry kind="var" path="QA_HG_HOME/3rdparty/sikuli/sikuli-ide.jar"/>
+	<classpathentry kind="output" path="classes"/>
+</classpath>

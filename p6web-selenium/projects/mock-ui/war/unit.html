@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta charset="UTF-8" />
+	<title>Workflows UI QUnit Tests</title>
+	<link rel="stylesheet" type="text/css" href="lib/qunit/css/qunit.css" />
+	<script src="lib/qunit/js/qunit.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		// Let everything load before we start things off.
+		// We need to pause QUnit ASAP to prevent it running before require.js loads any tests.
+		QUnit.config.autostart = false;
+	</script>
+	<script data-main="javascripts/unit-loader" src="lib/require/js/require.js" type="text/javascript"></script>
+</head>
+<body>
+	<div id="qunit"></div>
+	<div id="qunit-fixture">
+		<div class="container-fluid page-content">
+			<div class="row-fluid page-header"></div>
+			<div class="row-fluid toolbar"></div>
+			<div class="row-fluid content"></div>
+			<div class="row-fluid actions-overlay"></div>
+		</div>
+	</div>
+</body>
+</html>

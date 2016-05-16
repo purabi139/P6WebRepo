@@ -1,0 +1,845 @@
+[
+    {
+        "type":"FORM",
+        "label":"Form Examples",
+        "children":[
+            {
+                "type":"TABSET",
+                "label":"tabs title",
+                "children":[
+                    {
+                        "type":"TAB",
+                        "label":"Tab 1",
+                        "active":true,
+                        "name":"InformationName",
+                        "children":[
+                            {
+                                "type":"GROUPSET",
+                                "children":[
+                                    {
+                                        "type":"GROUP",
+                                        "label":"1 - Half Group Box",
+                                        "description":"Business Alignment description",
+                                        "layout":{
+                                            "size":2,
+                                            "border":true,
+                                            "showDescription":true
+                                        },
+                                        "children":[
+                                            {
+                                                "type":"GROUPSET",
+                                                "children":[
+                                                    {
+                                                        "type":"GROUP",
+                                                        "label":"",
+                                                        "description":"Upper left of Business Alignment",
+                                                        "layout":{
+                                                            "size":2,
+                                                            "border":false,
+                                                            "showDescription":true
+                                                        },
+                                                        "children":[
+                                                            {
+                                                                "type":"STRING",
+                                                                "dataKey":"Project_Sponsor",
+                                                                "label":"1.1.1 Quarter Text",
+                                                                "id":"1003",
+                                                                "readOnly":false
+                                                            },
+                                                            {
+                                                                "type":"STRING",
+                                                                "dataKey":"Project_BusinessProcess",
+                                                                "label":"1.1.2 Quarter Text",
+                                                                "id":"1005",
+                                                                "readOnly":false
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "type":"GROUP",
+                                                        "label":"",
+                                                        "description":"Upper right of Business Alignment",
+                                                        "layout":{
+                                                            "size":2,
+                                                            "border":false,
+                                                            "showDescription":true
+                                                        },
+                                                        "children":[
+                                                            {
+                                                                "type":"STRING",
+                                                                "dataKey":"Project_BusinessSegment",
+                                                                "label":"1.2.1 Quarter Text",
+                                                                "id":"1006",
+                                                                "readOnly":false
+                                                            },
+                                                            {
+                                                                "type":"STRING",
+                                                                "dataKey":"Project_StrategicObjective",
+                                                                "label":"1.2.2 Quarter Text",
+                                                                "id":"1007",
+                                                                "readOnly":false
+                                                            }
+                                                        ]
+                                                    }
+
+                                                ]
+                                            },
+
+                                            {
+                                                "type":"STRING",
+                                                "dataKey":"Project_BusinessJustification",
+                                                "label":"* 1.3 Half Text",
+                                                "id":"1008",
+                                                "readOnly":false
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type":"GROUP",
+                                        "label":"2 - Quarter Group Box",
+                                        "description":"Upper left of Proposed Project Details",
+                                        "layout":{
+                                            "size":1,
+                                            "border":true,
+                                            "showDescription":true
+                                        },
+                                        "children":[
+                                            {
+                                                "type":"STRING",
+                                                "dataKey":"Project_Type",
+                                                "label":"2.1 Quarter Text",
+                                                "id":"1101",
+                                                "readOnly":false
+                                            },
+                                            {
+                                                "type":"STRING",
+                                                "dataKey":"Project_PlannedStart",
+                                                "label":"2.2 Quarter Text",
+                                                "id":"1102",
+                                                "readOnly":false
+                                            },
+                                            {
+                                                "type":"STRING",
+                                                "dataKey":"Project_EstimatedBudget",
+                                                "label":"* 2.3 Quarter Text",
+                                                "id":"1103",
+                                                "readOnly":false
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type":"GROUP",
+                                        "label":"3 - Quarter Group Box",
+                                        "description":"Upper right of Proposed Project Details",
+                                        "layout":{
+                                            "size":1,
+                                            "border":true,
+                                            "showDescription":true
+                                        },
+                                        "children":[
+                                            {
+                                                "type":"STRING",
+                                                "dataKey":"Project_Status",
+                                                "label":"3.1 Quarter Read Only Text",
+                                                "id":"1104",
+                                                "readOnly":true
+                                            },
+                                            {
+                                                "type":"STRING",
+                                                "dataKey":"Project_AnticipatedFinsih",
+                                                "label":"3.2 Quarter Text",
+                                                "id":"1105",
+                                                "readOnly":false
+                                            }
+
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type":"GROUPSET",
+                                "children":[
+                                    {
+                                        "type":"GROUP",
+                                        "label":"4 - Quarter Group Box",
+                                        "description":"Business Alignment description",
+                                        "layout":{
+                                            "size":1,
+                                            "border":true,
+                                            "showDescription":true
+                                        },
+                                        "children":[
+                                            {
+                                                "type":"GROUPSET",
+                                                "children":[
+                                                    {
+                                                        "type":"GROUP",
+                                                        "label":"",
+                                                        "description":"Upper left of Business Alignment",
+                                                        "layout":{
+                                                            "border":false,
+                                                            "showDescription":true
+                                                        },
+                                                        "children":[
+                                                            {
+                                                                "type":"STRING",
+                                                                "dataKey":"Project_Sponsor",
+                                                                "label":"4.1.1 Quarter Text",
+                                                                "id":"1003",
+                                                                "readOnly":false
+                                                            },
+                                                            {
+                                                                "type":"STRING",
+                                                                "dataKey":"Project_BusinessProcess",
+                                                                "label":"4.1.2 Quarter Text",
+                                                                "id":"1005",
+                                                                "readOnly":false
+                                                            },
+                                                            {
+                                                                "type":"STRING",
+                                                                "dataKey":"Project_Sponsor",
+                                                                "label":"4.1.3 Quarter Text",
+                                                                "id":"1003",
+                                                                "readOnly":false
+                                                            },
+                                                            {
+                                                                "type":"STRING",
+                                                                "dataKey":"Project_BusinessProcess",
+                                                                "label":"4.1.4 Quarter Text",
+                                                                "id":"1005",
+                                                                "readOnly":false
+                                                            }
+                                                        ]
+                                                    }
+
+
+                                                ]
+                                            },
+
+                                            {
+                                                "type":"STRING",
+                                                "dataKey":"Project_BusinessJustification",
+                                                "label":"* 4.2 Quarter Tex",
+                                                "id":"1008",
+                                                "readOnly":false
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type":"GROUP",
+                                        "label":"5 - Half  Group Box",
+                                        "description":"Business Alignment description",
+                                        "layout":{
+                                            "size":2,
+                                            "border":true,
+                                            "showDescription":true
+                                        },
+                                        "children":[
+                                            {
+                                                "type":"GROUPSET",
+                                                "children":[
+                                                    {
+                                                        "type":"GROUP",
+                                                        "label":"",
+                                                        "description":"Upper left of Business Alignment",
+                                                        "layout":{
+                                                            "size":2,
+                                                            "border":false,
+                                                            "showDescription":true
+                                                        },
+                                                        "children":[
+                                                            {
+                                                                "type":"STRING",
+                                                                "dataKey":"Project_Sponsor",
+                                                                "label":"5.1.1 Quarter Text",
+                                                                "id":"1003",
+                                                                "readOnly":false
+                                                            },
+                                                            {
+                                                                "type":"STRING",
+                                                                "dataKey":"Project_BusinessProcess",
+                                                                "label":"5.1.2 Quarter Text",
+                                                                "id":"1005",
+                                                                "readOnly":false
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "type":"GROUP",
+                                                        "label":"",
+                                                        "description":"Upper right of Business Alignment",
+                                                        "layout":{
+                                                            "size":2,
+                                                            "border":false,
+                                                            "showDescription":true
+                                                        },
+                                                        "children":[
+                                                            {
+                                                                "type":"STRING",
+                                                                "dataKey":"Project_BusinessSegment",
+                                                                "label":"5.2.1 Quarter Text",
+                                                                "id":"1006",
+                                                                "readOnly":false
+                                                            },
+                                                            {
+                                                                "type":"STRING",
+                                                                "dataKey":"Project_StrategicObjective",
+                                                                "label":"5.2.2 Quarter Text",
+                                                                "id":"1007",
+                                                                "readOnly":false
+                                                            }
+                                                        ]
+                                                    }
+
+                                                ]
+                                            },
+
+                                            {
+                                                "type":"STRING",
+                                                "dataKey":"Project_BusinessJustification",
+                                                "label":"5.3 Half Text",
+                                                "id":"1008",
+                                                "readOnly":false
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type":"GROUP",
+                                        "label":"6 - Quarter  Group Box",
+                                        "description":"Business Alignment description",
+                                        "layout":{
+                                            "size":1,
+                                            "border":true,
+                                            "showDescription":true
+                                        },
+                                        "children":[
+                                            {
+                                                "type":"GROUPSET",
+                                                "children":[
+                                                    {
+                                                        "type":"GROUP",
+                                                        "label":"",
+                                                        "description":"Upper left of Business Alignment",
+                                                        "layout":{
+                                                            "border":false,
+                                                            "showDescription":true
+                                                        },
+                                                        "children":[
+                                                            {
+                                                                "type":"STRING",
+                                                                "dataKey":"Project_Sponsor",
+                                                                "label":"6.1.1 Quarter Text",
+                                                                "id":"1003",
+                                                                "readOnly":false
+                                                            },
+                                                            {
+                                                                "type":"STRING",
+                                                                "dataKey":"Project_BusinessProcess",
+                                                                "label":"6.1.2 Quarter Text",
+                                                                "id":"1005",
+                                                                "readOnly":false
+                                                            }
+                                                        ]
+                                                    }
+
+
+                                                ]
+                                            },
+
+                                            {
+                                                "type":"STRING",
+                                                "dataKey":"Project_BusinessJustification",
+                                                "label":"6.2 Quarter Text",
+                                                "id":"1008",
+                                                "readOnly":false
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    } ,
+                    {
+                        "type":"TAB",
+                        "label":"Tab 2",
+                        "name":"DetailsName",
+                        "children":[
+                            {
+                                "type":"GROUP",
+                                "label":"Proposed Project Details",
+                                "description":"Proposed Project Details description",
+                                "layout":{
+                                    "size":4,
+                                    "border":true,
+                                    "showDescription":true
+                                },
+                                "children":[
+                                    {
+                                        "type":"GROUPSET",
+                                        "children":[
+
+                                            {
+                                                "type":"GROUP",
+                                                "label":"",
+                                                "description":"Upper left of Proposed Project Details",
+                                                "layout":{
+                                                    "size":2,
+                                                    "border":false,
+                                                    "showDescription":true
+                                                },
+                                                "children":[
+                                                    {
+                                                        "type":"STRING",
+                                                        "dataKey":"Project_Type",
+                                                        "label":"Project Type",
+                                                        "id":"1101",
+                                                        "readOnly":false
+                                                    },
+                                                    {
+                                                        "type":"STRING",
+                                                        "dataKey":"Project_PlannedStart",
+                                                        "label":"Planned Start",
+                                                        "id":"1102",
+                                                        "readOnly":false
+                                                    },
+                                                    {
+                                                        "type":"STRING",
+                                                        "dataKey":"Project_EstimatedBudget",
+                                                        "label":"* Estimated Budget",
+                                                        "id":"1103",
+                                                        "readOnly":false
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type":"GROUP",
+                                                "label":"",
+                                                "description":"Upper right of Proposed Project Details",
+                                                "layout":{
+                                                    "size":2,
+                                                    "border":false,
+                                                    "showDescription":true
+                                                },
+                                                "children":[
+                                                    {
+                                                        "type":"STRING",
+                                                        "dataKey":"Project_Status",
+                                                        "label":"Project Status",
+                                                        "id":"1104",
+                                                        "readOnly":true
+                                                    },
+                                                    {
+                                                        "type":"STRING",
+                                                        "dataKey":"Project_AnticipatedFinsih",
+                                                        "label":"Anticipated Finish",
+                                                        "id":"1105",
+                                                        "readOnly":false
+                                                    },
+                                                    {
+                                                        "type":"STRING",
+                                                        "dataKey":"Project_UseContractManagement",
+                                                        "label":"Use Contract Management",
+                                                        "id":"1106",
+                                                        "readOnly":false
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type":"GROUP",
+                                "label":"Comments",
+                                "description":"Comments description",
+                                "layout":{
+                                    "size":4,
+                                    "border":true,
+                                    "showDescription":true
+                                },
+                                "children":[
+                                {"type":"PROMPT",
+                                "label":"Efficiently formulate backend models and magnetic quality vectors. Quickly evisculate team driven synergy and fully researched supply chains. Professionally leverage other's unique leadership skills whereas standards compliant strategic theme areas. Phosfluorescently fabricate cross-platform partnerships whereas."
+                                }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type":"TAB",
+                        "label":"Tab 3",
+                        "active":false,
+                        "name":"AttachmentsName",
+                        "children":[
+                        ]
+                    }
+
+                ]
+            },
+            {
+                "type":"TABSET",
+                "label":"tabs title",
+                "children":[
+                    {
+                        "type":"TAB",
+                        "label":"Tab 4",
+                        "active":true,
+                        "name":"InformationName",
+                        "children":[
+                            {
+                                "type":"GROUPSET",
+                                "children":[
+                                    {
+                                        "type":"GROUP",
+                                        "label":"1 - Full Group Box",
+                                        "description":"Business Alignment description",
+                                        "layout":{
+                                            "size":4,
+                                            "border":true,
+                                            "showDescription":true
+                                        },
+                                        "children":[
+                                            {
+                                                "type":"GROUPSET",
+                                                "children":[
+                                                    {
+                                                        "type":"GROUP",
+                                                        "label":"",
+                                                        "description":"Upper left of Business Alignment",
+                                                        "layout":{
+                                                            "border":false,
+                                                            "showDescription":true
+                                                        },
+                                                        "children":[
+                                                            {
+                                                                "type":"STRING",
+                                                                "dataKey":"Project_Sponsor",
+                                                                "label":"1.1.1 Full Text",
+                                                                "id":"1003",
+                                                                "readOnly":false
+                                                            },
+                                                            {
+                                                                "type":"STRING",
+                                                                "dataKey":"Project_BusinessProcess",
+                                                                "label":"1.1.2 Full Text",
+                                                                "id":"1005",
+                                                                "readOnly":false
+                                                            }
+                                                        ]
+                                                    }
+
+                                                ]
+                                            },
+                                            {
+                                                "type":"GROUPSET",
+                                                "children":[
+                                                    {
+                                                        "type":"GROUP",
+                                                        "label":"",
+                                                        "description":"Upper left of Business Alignment",
+                                                        "layout":{
+                                                            "size":3,
+                                                            "border":false,
+                                                            "showDescription":true
+                                                        },
+                                                        "children":[
+                                                            {
+                                                                "type":"STRING",
+                                                                "dataKey":"Project_Sponsor",
+                                                                "label":"1.2.1 3/4 Text",
+                                                                "id":"1003",
+                                                                "readOnly":false
+                                                            },
+                                                            {
+                                                                "type":"STRING",
+                                                                "dataKey":"Project_BusinessProcess",
+                                                                "label":"1.2.2 3/4 Text",
+                                                                "id":"1005",
+                                                                "readOnly":false
+                                                            }
+                                                        ]
+                                                    }
+
+                                                ]
+                                            },
+
+                                            {
+                                                "type":"STRING",
+                                                "dataKey":"Project_BusinessJustification",
+                                                "label":"1.3 Full Text",
+                                                "id":"1008",
+                                                "readOnly":false
+                                            }
+                                        ]
+                                    }
+
+                                ]
+                            },
+                            {
+                                "type":"GROUPSET",
+                                "children":[
+                                    {
+                                        "type":"GROUP",
+                                        "label":"2 - Half Group Box",
+                                        "description":"Business Alignment description",
+                                        "layout":{
+                                            "size":2,
+                                            "border":true,
+                                            "showDescription":true
+                                        },
+                                        "children":[
+                                            {
+                                                "type":"GROUPSET",
+                                                "children":[
+                                                    {
+                                                        "type":"GROUP",
+                                                        "label":"",
+                                                        "description":"Upper left of Business Alignment",
+                                                        "layout":{
+                                                            "border":false,
+                                                            "showDescription":true
+                                                        },
+                                                        "children":[
+                                                            {
+                                                                "type":"STRING",
+                                                                "dataKey":"Project_Sponsor",
+                                                                "label":"2.1.1 Half Text",
+                                                                "id":"1003",
+                                                                "readOnly":false
+                                                            },
+                                                            {
+                                                                "type":"STRING",
+                                                                "dataKey":"Project_BusinessProcess",
+                                                                "label":"2.1.2 Half Text",
+                                                                "id":"1005",
+                                                                "readOnly":false
+                                                            },
+                                                            {
+                                                                "type":"STRING",
+                                                                "dataKey":"Project_Sponsor",
+                                                                "label":"2.1.3 Half Text",
+                                                                "id":"1003",
+                                                                "readOnly":false
+                                                            },
+                                                            {
+                                                                "type":"STRING",
+                                                                "dataKey":"Project_BusinessProcess",
+                                                                "label":"2.1.4 Half Text",
+                                                                "id":"1005",
+                                                                "readOnly":false
+                                                            }
+                                                        ]
+                                                    }
+
+
+                                                ]
+                                            },
+
+                                            {
+                                                "type":"STRING",
+                                                "dataKey":"Project_BusinessJustification",
+                                                "label":"* 2.2 Half Text",
+                                                "id":"1008",
+                                                "readOnly":false
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type":"GROUP",
+                                        "label":"3 - Half  Group Box",
+                                        "description":"Business Alignment description",
+                                        "layout":{
+                                            "size":2,
+                                            "border":true,
+                                            "showDescription":true
+                                        },
+                                        "children":[
+                                            {
+                                                "type":"GROUPSET",
+                                                "children":[
+                                                    {
+                                                        "type":"GROUP",
+                                                        "label":"",
+                                                        "description":"Upper left of Business Alignment",
+                                                        "layout":{
+                                                            "size":2,
+                                                            "border":false,
+                                                            "showDescription":true
+                                                        },
+                                                        "children":[
+                                                            {
+                                                                "type":"STRING",
+                                                                "dataKey":"Project_Sponsor",
+                                                                "label":"3.1.1 Quarter Text",
+                                                                "id":"1003",
+                                                                "readOnly":false
+                                                            },
+                                                            {
+                                                                "type":"STRING",
+                                                                "dataKey":"Project_BusinessProcess",
+                                                                "label":"3.1.2 Quarter Text",
+                                                                "id":"1005",
+                                                                "readOnly":false
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "type":"GROUP",
+                                                        "label":"",
+                                                        "description":"Upper right of Business Alignment",
+                                                        "layout":{
+                                                            "size":2,
+                                                            "border":false,
+                                                            "showDescription":true
+                                                        },
+                                                        "children":[
+                                                            {
+                                                                "type":"STRING",
+                                                                "dataKey":"Project_BusinessSegment",
+                                                                "label":"3.2.1 Quarter Text",
+                                                                "id":"1006",
+                                                                "readOnly":false
+                                                            },
+                                                            {
+                                                                "type":"STRING",
+                                                                "dataKey":"Project_StrategicObjective",
+                                                                "label":"3.2.2 Quarter Text",
+                                                                "id":"1007",
+                                                                "readOnly":false
+                                                            }
+                                                        ]
+                                                    }
+
+                                                ]
+                                            },
+
+                                            {
+                                                "type":"STRING",
+                                                "dataKey":"Project_BusinessJustification",
+                                                "label":"* 3.3 Half Text",
+                                                "id":"1008",
+                                                "readOnly":false
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    } ,
+                    {
+                        "type":"TAB",
+                        "label":"Tab 5",
+                        "name":"DetailsName",
+                        "children":[
+                            {
+                                "type":"GROUP",
+                                "label":"Proposed Project Details",
+                                "description":"Proposed Project Details description",
+                                "layout":{
+                                    "size":4,
+                                    "border":true,
+                                    "showDescription":true
+                                },
+                                "children":[
+                                    {
+                                        "type":"GROUPSET",
+                                        "children":[
+
+                                            {
+                                                "type":"GROUP",
+                                                "label":"",
+                                                "description":"Upper left of Proposed Project Details",
+                                                "layout":{
+                                                    "size":2,
+                                                    "border":false,
+                                                    "showDescription":true
+                                                },
+                                                "children":[
+                                                    {
+                                                        "type":"STRING",
+                                                        "dataKey":"Project_Type",
+                                                        "label":"Project Type",
+                                                        "id":"1101",
+                                                        "readOnly":false
+                                                    },
+                                                    {
+                                                        "type":"STRING",
+                                                        "dataKey":"Project_PlannedStart",
+                                                        "label":"Planned Start",
+                                                        "id":"1102",
+                                                        "readOnly":false
+                                                    },
+                                                    {
+                                                        "type":"STRING",
+                                                        "dataKey":"Project_EstimatedBudget",
+                                                        "label":"* Estimated Budget",
+                                                        "id":"1103",
+                                                        "readOnly":false
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type":"GROUP",
+                                                "label":"",
+                                                "description":"Upper right of Proposed Project Details",
+                                                "layout":{
+                                                    "size":2,
+                                                    "border":false,
+                                                    "showDescription":true
+                                                },
+                                                "children":[
+                                                    {
+                                                        "type":"STRING",
+                                                        "dataKey":"Project_Status",
+                                                        "label":"Project Status",
+                                                        "id":"1104",
+                                                        "readOnly":true
+                                                    },
+                                                    {
+                                                        "type":"STRING",
+                                                        "dataKey":"Project_AnticipatedFinsih",
+                                                        "label":"Anticipated Finish",
+                                                        "id":"1105",
+                                                        "readOnly":false
+                                                    },
+                                                    {
+                                                        "type":"STRING",
+                                                        "dataKey":"Project_UseContractManagement",
+                                                        "label":"Use Contract Management",
+                                                        "id":"1106",
+                                                        "readOnly":false
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type":"GROUP",
+                                "label":"Comments",
+                                "description":"Comments description",
+                                "layout":{
+                                    "size":4,
+                                    "border":true,
+                                    "showDescription":true
+                                },
+                                "children":[
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type":"TAB",
+                        "label":"Tab 6",
+                        "active":false,
+                        "name":"AttachmentsName",
+                        "children":[
+                        ]
+                    }
+
+                ]
+            }
+        ]
+    }
+]
